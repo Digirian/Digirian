@@ -3,10 +3,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Library Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
 <style>
-/* Konsep: panggung tetap 1920x1080 yang diskalakan ke layar TV 32 inci.
-   Header desa, tab bagian, isi bergilir otomatis, ticker pengumuman di bawah.
-   Hijau tua + kuningan, pola kisi persegi delapan sangat halus di latar. */
 :root{
   --bg:#0a2622; --bg-2:#0e312b; --panel:#13403a; --panel-2:#1b5249; --line:rgba(238,243,236,.16);
   --fg:#eef3ec; --muted:#a4bfb5; --gold:#e3b04b; --gold-ink:#2a1d00;
@@ -284,24 +286,37 @@ label.f.ck{flex-direction:row;align-items:center;gap:10px;font-size:15px;color:v
 (function(){
 'use strict';
 
-/* ===== DATA AWAL (contoh). Boleh diedit langsung di sini, atau lewat tombol Edit di layar. ===== */
+/* ===== DATA AWAL DESA MAJELIS HIDAYAH ===== */
 var DEFAULT = {
   v:2,
   profil:{
-    namaDesa:'Majelis Hidayah', kecamatan:'', kabupaten:'', provinsi:'',
-    kades:'', sambutan:'', slogan:'',
-    penduduk:'', kk:'', luas:'', dusun:'', rt:'', rw:'',
-    alamat:'', jamLayanan:'', telp:''
+    namaDesa:'Majelis Hidayah', kecamatan:'Kuala Jambi', kabupaten:'Tanjung Jabung Timur', provinsi:'Jambi',
+    kades:'Hendra Wijaya, S.Sos', sambutan:'Selamat datang di Kantor Desa Majelis Hidayah. Kami siap melayani kebutuhan administrasi warga dengan sepenuh hati.', slogan:'Melayani dengan Hati, Membangun Bersama Masyarakat',
+    penduduk:'', kk:'', luas:'', dusun:'3', rt:'', rw:'',
+    alamat:'Kantor Desa Majelis Hidayah, Kec. Kuala Jambi', jamLayanan:'Senin – Jumat 08.00 – 15.00 WIB', telp:''
   },
-  tampil:{ durasi:15, logo:'', linkHadir:'', pengumuman:'' },
+  tampil:{ durasi:15, logo:'', linkHadir:'', pengumuman:'Selamat datang di Kantor Desa Majelis Hidayah. Pelayanan dibuka Senin sampai Jumat pukul 08.00 – 15.00 WIB.' },
   berita:[],
   agenda:[],
   galeri:[],
   sosmed:[],
   anggaran:{ tahun:2026, perTanggal:'', pendapatan:[], belanja:[], penerimaan:[], pengeluaran:[] },
-  perangkat:[],
-  hadir:{ tanggal:'', hariKerja:0, jamMasuk:'07:30', html:'' },
-  bpd:{ periode:'',
+  perangkat:[
+    {foto:'',nama:'Hendra Wijaya, S.Sos',jabatan:'Kepala Desa',status:'Belum Hadir',masuk:'',pulang:'',hadir:0},
+    {foto:'',nama:'Siti Aminah, S.E.',jabatan:'Sekretaris Desa',status:'Belum Hadir',masuk:'',pulang:'',hadir:0},
+    {foto:'',nama:'Agus Prasetyo',jabatan:'Kaur Tata Usaha & Umum',status:'Belum Hadir',masuk:'',pulang:'',hadir:0},
+    {foto:'',nama:'Ratna Dewi',jabatan:'Kaur Keuangan',status:'Belum Hadir',masuk:'',pulang:'',hadir:0},
+    {foto:'',nama:'Bambang Sutrisno',jabatan:'Kaur Perencanaan',status:'Belum Hadir',masuk:'',pulang:'',hadir:0},
+    {foto:'',nama:'Joko Santoso',jabatan:'Kasi Pemerintahan',status:'Belum Hadir',masuk:'',pulang:'',hadir:0},
+    {foto:'',nama:'Lestari Handayani',jabatan:'Kasi Kesejahteraan',status:'Belum Hadir',masuk:'',pulang:'',hadir:0},
+    {foto:'',nama:'Yusuf Maulana',jabatan:'Kasi Pelayanan',status:'Belum Hadir',masuk:'',pulang:'',hadir:0},
+    {foto:'',nama:'Darmawan',jabatan:'Kepala Dusun I',status:'Belum Hadir',masuk:'',pulang:'',hadir:0},
+    {foto:'',nama:'Nur Hidayah',jabatan:'Kepala Dusun II',status:'Belum Hadir',masuk:'',pulang:'',hadir:0},
+    {foto:'',nama:'Eko Setiawan',jabatan:'Kepala Dusun III',status:'Belum Hadir',masuk:'',pulang:'',hadir:0},
+    {foto:'',nama:'Mulyani',jabatan:'Staf Administrasi',status:'Belum Hadir',masuk:'',pulang:'',hadir:0}
+  ],
+  hadir:{ tanggal:'', hariKerja:20, jamMasuk:'07:30', html:'' },
+  bpd:{ periode:'2021 – 2027',
     fungsi:'BPD membahas dan menyepakati Rancangan Peraturan Desa bersama Kepala Desa, menampung dan menyalurkan aspirasi masyarakat, serta mengawasi kinerja Kepala Desa.',
     anggota:[] },
   pkk:{
@@ -329,49 +344,59 @@ function merge(base,src){
   }
   return base;
 }
-/* Data contoh versi lama yang sempat tersimpan di peramban dibersihkan satu kali. Data yang sudah Anda ganti tidak disentuh. */
-function cleanOld(d){
-  function drop(arr,k,names){return (arr||[]).filter(function(x){return names.indexOf(x[k])<0;});}
-  d.berita=drop(d.berita,'judul',['Musyawarah Desa Bahas Rencana Kerja Pemerintah Desa 2027','Posyandu Balita dan Lansia Digelar di Tiga Dusun','Penyaluran BLT Dana Desa Tahap Ketiga','Kerja Bakti Bersihkan Saluran Air Jelang Musim Hujan','Pelayanan Adminduk Keliling Akhir Oktober']);
-  d.agenda=drop(d.agenda,'kegiatan',['Musyawarah Desa Penyusunan RKPDes 2027','Posyandu Balita dan Lansia','Rapat Koordinasi Perangkat Desa','Pelayanan Adminduk Keliling']);
-  d.galeri=drop(d.galeri,'judul',['Kerja Bakti Bersama Warga','Posyandu Balita dan Lansia','Musyawarah Desa','Penyaluran BLT Dana Desa','Senam Sehat Bersama PKK','Rapat Koordinasi Perangkat Desa']);
-  d.sosmed=drop(d.sosmed,'akun',['@desamajelishidayah','Pemerintah Desa Majelis Hidayah','Desa Majelis Hidayah','0812-0000-0000']);
-  d.perangkat=drop(d.perangkat,'nama',['H. Ahmad Rifani, S.Pd','Muhammad Noor, S.Sos','Siti Aminah','Rahmat Hidayat','Norhasanah, S.E.','Abdul Gani','Hj. Rusmini','Fadli Rahman','Syahrani','Zainal Arifin','Marhaini']);
-  d.bpd.anggota=drop(d.bpd.anggota,'nama',['Drs. H. Syarifuddin','Ahmad Fauzi, S.H.','Nurlaila','Mahyuni','Hasbullah','Ibrahim','Rahmawati']);
-  d.pkk.pengurus=drop(d.pkk.pengurus,'nama',['Hj. Rahimah','Nurhayati','Aisyah','Salmah']);
-  (d.pkk.pokja||[]).forEach(function(x){
-    if(['Normaliah','Hartini','Laila Sari','Yuliana'].indexOf(x.ketua)>=0)x.ketua='';
-    if(/^(Penyuluhan gotong royong|Pelatihan keterampilan, UP2K|Pemanfaatan pekarangan|Posyandu, PHBS)/.test(x.program||''))x.program='';
-  });
-  var ang=['Pendapatan Asli Desa|85000000','Dana Desa|1150000000','Bagi Hasil Pajak dan Retribusi|42000000','Alokasi Dana Desa|780000000','Bantuan Keuangan Pemda|300000000','Pendapatan Lain-lain|18000000','Penyelenggaraan Pemerintahan Desa|1020000000','Pelaksanaan Pembangunan Desa|780000000','Pembinaan Kemasyarakatan|215000000','Pemberdayaan Masyarakat|260000000','Penanggulangan Bencana dan Keadaan Mendesak|90000000','SiLPA Tahun Sebelumnya|40000000','Penyertaan Modal Desa (BUMDes)|50000000'];
-  ['pendapatan','belanja','penerimaan','pengeluaran'].forEach(function(k){
-    d.anggaran[k]=(d.anggaran[k]||[]).filter(function(x){return ang.indexOf(x.nama+'|'+num(x.pagu))<0;});
-  });
-  if(d.anggaran.perTanggal==='2026-10-20')d.anggaran.perTanggal='';
-  var P=d.profil,old={kades:'H. Ahmad Rifani, S.Pd',slogan:'Melayani dengan Hati, Membangun dengan Gotong Royong',penduduk:'2.847',kk:'812',luas:'6,4',dusun:'3',rt:'9',rw:'3',alamat:'Jl. Raya Desa No. 1, Kantor Desa Majelis Hidayah',telp:'0812-0000-0000'};
-  for(var k in old){if(P[k]===old[k])P[k]='';}
-  if(/^Assalamualaikum warahmatullahi wabarakatuh\. Selamat datang di layanan/.test(P.sambutan||''))P.sambutan='';
-  if(/^Senin–Kamis 08\.00/.test(P.jamLayanan||''))P.jamLayanan='';
-  if(/^Pelayanan surat menyurat dibuka/.test(d.tampil.pengumuman||''))d.tampil.pengumuman='';
-  if(d.tampil.linkHadir==='https://claude.ai/artifact/6k1opq1DqDnyAvK3EpM4wp')d.tampil.linkHadir='';
-  if(d.bpd.periode==='2022 – 2028')d.bpd.periode='';
-  if(d.hadir.tanggal==='2026-10-20'&&num(d.hadir.hariKerja)===14){d.hadir.tanggal='';d.hadir.hariKerja=0;}
-  delete d.tampil.contoh;
-  d.v=2;
-  return d;
-}
+
 function load(){
   try{
     var s=localStorage.getItem(KEY);
-    if(s){var raw=JSON.parse(s),d=merge(clone(DEFAULT),raw);return raw.v>=2?d:cleanOld(d);}
+    if(s){var raw=JSON.parse(s);return merge(clone(DEFAULT),raw);}
   }catch(e){}
   return clone(DEFAULT);
 }
 var data=load();
 var saveOk=true;
+
+/* ===== Integrasi Firebase Realtime Database ===== */
+var db=null;
+function initDb(){
+  try {
+    if(typeof firebase!=='undefined'){
+      const firebaseConfig = {
+        apiKey: "AIzaSyBINhL5aMzRuYZBlj35XjUuKdEOfjtWNB8",
+        authDomain: "absen-desa.firebaseapp.com",
+        databaseURL: "https://absen-desa-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "absen-desa",
+        storageBucket: "absen-desa.firebasestorage.app",
+        messagingSenderId: "924833863159",
+        appId: "1:924833863159:web:8eefe3ff06357ea39e0af2"
+      };
+      if(!firebase.apps.length){
+        firebase.initializeApp(firebaseConfig);
+      }
+      db=firebase.database();
+
+      // Sinkronisasi data utama desa dan absensi antar perangkat
+      db.ref("desa_display").on("value", function(snapshot){
+        var val=snapshot.val();
+        if(val){
+          data=merge(clone(DEFAULT),val);
+          try{localStorage.setItem(KEY,JSON.stringify(data));}catch(e){}
+          renderAll();
+          if(!$('ed').hidden) buildEd(true);
+        }
+      });
+    }
+  }catch(err){
+    console.warn("Koneksi Firebase dibatasi/offline:", err);
+    db=null;
+  }
+}
+
 function save(){
   try{localStorage.setItem(KEY,JSON.stringify(data));saveOk=true;}catch(e){saveOk=false;}
   var t=document.getElementById('toast');if(t)t.hidden=saveOk;
+  if(db){
+    try{ db.ref("desa_display").set(data); }catch(e){}
+  }
 }
 
 /* ===== Helper ===== */
@@ -418,8 +443,8 @@ function lines(s){return String(s||'').split(/\n+/).map(function(x){return x.tri
 
 /* ===== Slide ===== */
 function head(t,sub){return '<div class="sh"><h2>'+esc(t)+'</h2><div class="sub">'+sub+'</div></div>';}
-
 function dash(v){return esc(v)||'–';}
+
 function sBeranda(){
   var p=data.profil;
   var stats=[['penduduk','Penduduk (jiwa)'],['kk','Kepala Keluarga'],['luas','Luas Wilayah (km²)'],['dusun','Dusun'],['rt','RT'],['rw','RW']];
@@ -563,7 +588,7 @@ var SL=[
   {id:'sosmed',label:'Sosial Media',fn:sSosmed}
 ];
 
-/* ===== Render ===== */
+/* ===== Render Shell ===== */
 var EMBLEM='<svg viewBox="0 0 80 80" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3"><rect x="16" y="16" width="48" height="48"/><rect x="16" y="16" width="48" height="48" transform="rotate(45 40 40)"/></g><circle cx="40" cy="40" r="11" fill="currentColor"/></svg>';
 var tabEls=[];
 function buildShell(){
@@ -596,17 +621,24 @@ function renderTicker(){
 }
 function renderAll(){
   renderHead();
-  SL.forEach(function(s,i){$('s-'+s.id).innerHTML=s.fn();if(tabEls[i]&&s.id==='anggaran')tabEls[i].textContent='Anggaran '+data.anggaran.tahun;});
+  SL.forEach(function(s,i){
+    var el=$('s-'+s.id);
+    if(el) el.innerHTML=s.fn();
+    if(tabEls[i]&&s.id==='anggaran')tabEls[i].textContent='Anggaran '+data.anggaran.tahun;
+  });
   renderTicker();
 }
 
-/* ===== Siklus slide ===== */
+/* ===== Siklus Slide Otomatis ===== */
 var idx=0,paused=false,tm=null;
 function dur(){return Math.max(5,num(data.tampil.durasi)||15);}
 function show(i){
   clearTimeout(tm);idx=(i+SL.length)%SL.length;
-  if(SL[idx].id==='galeri'){galPage++;$('s-galeri').innerHTML=sGaleri();}
-  SL.forEach(function(s,k){$('s-'+s.id).classList.toggle('on',k===idx);tabEls[k].classList.toggle('on',k===idx);});
+  if(SL[idx].id==='galeri'){galPage++;var elG=$('s-galeri');if(elG)elG.innerHTML=sGaleri();}
+  SL.forEach(function(s,k){
+    var sEl=$('s-'+s.id);if(sEl)sEl.classList.toggle('on',k===idx);
+    if(tabEls[k])tabEls[k].classList.toggle('on',k===idx);
+  });
   var pg=$('prog');pg.style.animation='none';void pg.offsetWidth;
   pg.style.animation='prog '+dur()+'s linear forwards';pg.style.animationPlayState=paused?'paused':'running';
   if(!paused)tm=setTimeout(function(){show(idx+1);},dur()*1000);
@@ -616,7 +648,7 @@ function setPaused(p){
   if(p){clearTimeout(tm);$('prog').style.animationPlayState='paused';}else show(idx);
 }
 
-/* ===== Jam dan skala ===== */
+/* ===== Jam dan Skala Layar ===== */
 function tick(){
   var n=new Date();
   $('clk').textContent=n.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).replace(/\./g,':');
@@ -627,7 +659,7 @@ function fit(){
   $('stage').style.transform='translate(-50%,-50%) scale('+s+')';
 }
 
-/* ===== Editor ===== */
+/* ===== Form Editor ===== */
 var PLAT=['Instagram','Facebook','YouTube','TikTok','WhatsApp','X (Twitter)','Website'];
 var LISTS={
   'galeri':{label:'Foto kegiatan (6 foto per halaman, ganti halaman otomatis)',add:'Tambah foto',fields:[['foto','Foto kegiatan','photo','fit'],['judul','Keterangan','text'],['tanggal','Tanggal','date']],blank:function(){return {foto:'',judul:'',tanggal:todayISO()};},title:function(x){return x.judul;}},
@@ -674,18 +706,18 @@ function listHTML(path){
 var TABS=[
   {id:'profil',label:'Profil & Tampilan',html:function(){
     return '<h3>Profil desa</h3>'+formHTML('profil',[['namaDesa','Nama desa','text'],['kades','Nama Kepala Desa','text'],['kecamatan','Kecamatan','text'],['kabupaten','Kabupaten / Kota','text'],['provinsi','Provinsi','text'],['slogan','Slogan','text','w'],['sambutan','Sambutan Kepala Desa','textarea','w'],['penduduk','Penduduk (jiwa)','text'],['kk','Kepala keluarga','text'],['luas','Luas wilayah (km²)','text'],['dusun','Jumlah dusun','text'],['rt','Jumlah RT','text'],['rw','Jumlah RW','text'],['alamat','Alamat kantor desa','text','w'],['jamLayanan','Jam pelayanan','text','w'],['telp','Telepon / WhatsApp','text']])+
-    '<h3>Tampilan TV</h3>'+formHTML('tampil',[['durasi','Lama tiap layar (detik)','number'],['linkHadir','Tautan luar ke halaman Daftar Hadir lain (opsional, kosongkan untuk menyembunyikan tombol)','text','w'],['pengumuman','Teks berjalan di bawah (satu pengumuman per baris)','textarea','w']])+
-    '<h3>Logo desa</h3><p class="hint">Unggah gambar logo (PNG atau JPG). Disimpan di peramban ini.</p><div class="rowbtns"><input type="file" id="logoFile" accept="image/*" style="max-width:320px"><button type="button" class="btn bad" data-act="nologo">Pakai lambang bawaan</button></div>';
+    '<h3>Tampilan TV</h3>'+formHTML('tampil',[['durasi','Lama tiap layar (detik)','number'],['linkHadir','Tautan luar ke halaman Daftar Hadir lain (opsional)','text','w'],['pengumuman','Teks berjalan di bawah (satu pengumuman per baris)','textarea','w']])+
+    '<h3>Logo desa</h3><p class="hint">Unggah gambar logo (PNG atau JPG).</p><div class="rowbtns"><input type="file" id="logoFile" accept="image/*" style="max-width:320px"><button type="button" class="btn bad" data-act="nologo">Pakai lambang bawaan</button></div>';
   }},
-  {id:'berita',label:'Berita',html:function(){return '<p class="hint">Berita pertama tampil besar, empat berikutnya di daftar samping. Semua judul ikut di teks berjalan.</p>'+listHTML('berita');}},
-  {id:'galeri',label:'Galeri',html:function(){return '<p class="hint">Unggah foto kegiatan dari galeri HP atau komputer. Foto diperkecil otomatis agar muat di penyimpanan peramban (sekitar 15 foto).</p>'+listHTML('galeri');}},
+  {id:'berita',label:'Berita',html:function(){return '<p class="hint">Berita pertama tampil besar, empat berikutnya di daftar samping.</p>'+listHTML('berita');}},
+  {id:'galeri',label:'Galeri',html:function(){return '<p class="hint">Unggah foto kegiatan dari komputer atau HP.</p>'+listHTML('galeri');}},
   {id:'agenda',label:'Agenda',html:function(){return listHTML('agenda');}},
   {id:'anggaran',label:'Anggaran',html:function(){
     return '<h3>Tahun dan tanggal data</h3>'+formHTML('anggaran',[['tahun','Tahun anggaran','number'],['perTanggal','Realisasi per tanggal','date']])+
     '<p class="hint">Total, surplus/defisit, dan persentase dihitung otomatis.</p>'+listHTML('anggaran.pendapatan')+listHTML('anggaran.belanja')+listHTML('anggaran.penerimaan')+listHTML('anggaran.pengeluaran');
   }},
   {id:'perangkat',label:'Perangkat Desa',html:function(){
-    return '<p class="hint">Isi nama, jabatan, dan foto. Foto perangkat urutan pertama juga dipakai pada sambutan Kepala Desa di Beranda. Status kehadiran diisi di tab Daftar Hadir.</p>'+listHTML('perangkat');
+    return '<p class="hint">Urutan pertama dipakai pada foto sambutan Kepala Desa di Beranda.</p>'+listHTML('perangkat');
   }},
   {id:'hadir',label:'Daftar Hadir',html:function(){
     var rows=(data.perangkat||[]).map(function(p,i){
@@ -695,29 +727,31 @@ var TABS=[
     }).join('')||'<p class="hint">Belum ada perangkat desa. Tambahkan dulu di tab Perangkat Desa.</p>';
     return '<h3>Pengaturan hari ini</h3>'+formHTML('hadir',[['tanggal','Tanggal kehadiran','date'],['hariKerja','Hari kerja bulan ini sampai hari ini','number'],['jamMasuk','Jam masuk resmi (lewat dari ini ditandai Terlambat)','time']])+
       '<div class="rowbtns"><button type="button" class="btn" data-act="hariini">Mulai hari baru (semua jadi Belum Hadir)</button><button type="button" class="btn" data-act="semuahadir">Tandai semua Hadir</button></div>'+
-      '<h3>Status tiap perangkat</h3><p class="hint">Klik status untuk mengubah. Memilih Hadir otomatis mengisi jam masuk dengan waktu sekarang, dan jam bisa diperbaiki.</p>'+rows+
-      '<h3>Tampilan HTML manual (lanjutan)</h3><p class="hint">Isi kotak ini jika ingin menulis sendiri HTML layar Daftar Hadir. Selama terisi, layar memakai HTML ini dan tidak mengikuti status otomatis. Klik tombol pertama untuk mulai dari HTML tampilan saat ini, lalu ubah sesuai kebutuhan. Script tidak dijalankan.</p>'+
-      '<label class="f w"><span>HTML layar Daftar Hadir</span><textarea data-path="hadir.html" rows="14" spellcheck="false" style="font-family:monospace;font-size:13px">'+esc(data.hadir.html)+'</textarea></label>'+
+      '<h3>Status tiap perangkat</h3><p class="hint">Klik status untuk mengubah. Status langsung terkirim dan tersinkron ke semua perangkat lain via Firebase.</p>'+rows+
+      '<h3>Tampilan HTML manual (opsional)</h3>'+
+      '<label class="f w"><span>HTML kustom layar Daftar Hadir</span><textarea data-path="hadir.html" rows="8" spellcheck="false" style="font-family:monospace;font-size:13px">'+esc(data.hadir.html)+'</textarea></label>'+
       '<div class="rowbtns"><button type="button" class="btn" data-act="htmlisi">Isi dengan HTML tampilan saat ini</button><button type="button" class="btn bad" data-act="htmlkosong">Kosongkan (kembali otomatis)</button></div>';
   }},
   {id:'bpd',label:'BPD',html:function(){return '<h3>BPD</h3>'+formHTML('bpd',[['periode','Masa jabatan','text'],['fungsi','Fungsi BPD','textarea','w']])+listHTML('bpd.anggota');}},
   {id:'pkk',label:'PKK',html:function(){return listHTML('pkk.pengurus')+listHTML('pkk.pokja');}},
-  {id:'sosmed',label:'Sosial Media',html:function(){return '<p class="hint">Isi tautan lengkap (misalnya https://instagram.com/akundesa) agar kode QR muncul di layar TV. Tanpa tautan, hanya nama akun yang tampil.</p>'+listHTML('sosmed');}},
+  {id:'sosmed',label:'Sosial Media',html:function(){return listHTML('sosmed');}},
   {id:'data',label:'Cadangan Data',html:function(){
-    return '<h3>Cadangkan atau pindahkan data</h3><p class="hint">Data tersimpan di peramban TV ini. Salin teks di bawah untuk cadangan (foto ikut tersalin, jadi teks bisa sangat panjang), atau tempel data dari perangkat lain lalu klik Terapkan.</p>'+
-    '<textarea id="jsonbox" rows="14" spellcheck="false" style="font-family:monospace;font-size:13px">'+esc(JSON.stringify(data,null,1))+'</textarea>'+
-    '<div class="rowbtns"><button type="button" class="btn gold" data-act="salin">Salin</button><button type="button" class="btn" data-act="terapkan">Terapkan</button><button type="button" class="btn bad" data-act="reset">Kosongkan semua data</button></div><div class="stt" id="stt" role="status"></div>';
+    return '<h3>Cadangkan data</h3>'+
+    '<textarea id="jsonbox" rows="10" spellcheck="false" style="font-family:monospace;font-size:13px">'+esc(JSON.stringify(data,null,1))+'</textarea>'+
+    '<div class="rowbtns"><button type="button" class="btn gold" data-act="salin">Salin Data</button><button type="button" class="btn" data-act="terapkan">Terapkan</button><button type="button" class="btn bad" data-act="reset">Reset Bawaan</button></div><div class="stt" id="stt" role="status"></div>';
   }}
 ];
+
 var curTab='profil',rt=null;
 function buildEd(keep){
   var ed=$('ed'),top=0,old=ed.querySelector('.ed-body');if(old&&keep)top=old.scrollTop;
-  ed.innerHTML='<div class="ed-top"><span class="ttl">Edit Konten</span>'+TABS.map(function(t){return '<button type="button" class="btn'+(t.id===curTab?' on':'')+'" data-tab="'+t.id+'">'+t.label+'</button>';}).join('')+
-    '<span style="flex:1"></span>'+(data.tampil.linkHadir?'<a class="btn" href="'+esc(data.tampil.linkHadir)+'" target="_blank" rel="noopener noreferrer" style="text-decoration:none">Daftar Hadir ↗</a>':'')+'<button type="button" class="btn gold" data-act="close">Selesai (Esc)</button></div><div class="ed-body"><div class="ed-in">'+TABS.filter(function(t){return t.id===curTab;})[0].html()+
-    '<p class="hint" style="margin-top:28px">Pintasan di layar TV: ← → ganti layar · Spasi jeda · F layar penuh · E buka panel ini. Perubahan tersimpan otomatis.</p></div></div>';
+  ed.innerHTML='<div class="ed-top"><span class="ttl">Edit Konten Desa</span>'+TABS.map(function(t){return '<button type="button" class="btn'+(t.id===curTab?' on':'')+'" data-tab="'+t.id+'">'+t.label+'</button>';}).join('')+
+    '<span style="flex:1"></span><button type="button" class="btn gold" data-act="close">Selesai (Esc)</button></div><div class="ed-body"><div class="ed-in">'+TABS.filter(function(t){return t.id===curTab;})[0].html()+
+    '<p class="hint" style="margin-top:28px">Pintasan: ← → ganti slide · Spasi jeda/putar · F layar penuh · E buka editor. Perubahan tersimpan dan tersinkron otomatis.</p></div></div>';
   ed.querySelector('.ed-body').scrollTop=top;
 }
-/* ===== Login admin (penjaga ringan di sisi peramban, bukan keamanan sungguhan) ===== */
+
+/* ===== Autentikasi Admin Editor ===== */
 var AUTH_USER='ariyansyah',AUTH_HASH='b56b74e857e2520f23cd7dc3ef2f8ddec7374aa616bde98b428a2d7f950d305c',SALT='majelis-hidayah|';
 function sha256(str){
   var K=[],H=[],p=0,c,i,j;
@@ -770,8 +804,8 @@ $('lgForm').addEventListener('submit',function(e){
 });
 function closeEd(){$('ed').hidden=true;buildShell();renderAll();show(idx);setPaused(false);}
 function dirty(){save();clearTimeout(rt);rt=setTimeout(renderAll,200);}
-
 function structural(){save();renderAll();buildEd(true);}
+
 function logoFrom(file){
   var fr=new FileReader();
   fr.onload=function(){
@@ -855,12 +889,12 @@ $('ed').addEventListener('click',function(e){
     catch(err){status('Format data tidak valid, tidak ada yang diubah.');}
   }
   else if(a==='reset'){
-    if(!b.dataset.armed){b.dataset.armed='1';b.textContent='Klik lagi untuk mengosongkan semua data';setTimeout(function(){if(b.isConnected){delete b.dataset.armed;b.textContent='Kosongkan semua data';}},4000);}
+    if(!b.dataset.armed){b.dataset.armed='1';b.textContent='Klik lagi untuk reset';setTimeout(function(){if(b.isConnected){delete b.dataset.armed;b.textContent='Reset';}},4000);}
     else{data=clone(DEFAULT);save();renderAll();buildEd(false);}
   }
 });
 
-/* ===== Papan ketik dan kursor ===== */
+/* ===== Papan Ketik dan Kursor ===== */
 document.addEventListener('keydown',function(e){
   var typing=/^(INPUT|TEXTAREA|SELECT)$/.test((e.target&&e.target.tagName)||'');
   if(e.key==='Escape'&&!$('lg').hidden){closeLogin();return;}
@@ -881,10 +915,11 @@ var idleT=null;
 function wake(){document.body.classList.remove('idle');clearTimeout(idleT);idleT=setTimeout(function(){document.body.classList.add('idle');},3000);}
 document.addEventListener('mousemove',wake);document.addEventListener('keydown',wake);
 
-/* ===== Mulai ===== */
+/* ===== Menjalankan Halaman ===== */
 buildShell();renderAll();tick();fit();show(0);wake();
 setInterval(tick,1000);
 window.addEventListener('resize',fit);
+initDb();
 })();
 </script>
 
