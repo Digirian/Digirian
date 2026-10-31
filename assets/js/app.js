@@ -422,7 +422,7 @@ const PERANGKAT_DATA = [
     category: 'staf',
     nip: 'SK Kades No. 09/MH/2023',
     period: '2023 - Sekarang',
-    avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80',
+    avatar: 'novi.jpg',
     description: 'Membantu Kepala Seksi Pemerintahan dalam administrasi kependudukan, registrasi surat warga, dan pembinaan ketertiban masyarakat.',
     tugas: [
       'Membantu penerimaan dan verifikasi awal berkas permohonan surat kependudukan warga.',
