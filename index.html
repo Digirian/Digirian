@@ -781,7 +781,7 @@
        ========================================================================== -->
   <section id="galeri" class="py-20 bg-slate-50 border-t border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-14">
+      <div class="text-center max-w-3xl mx-auto mb-12">
         <span class="text-xs font-bold tracking-widest uppercase text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">
           Dokumentasi Visual
         </span>
@@ -789,153 +789,147 @@
           Galeri Foto Kegiatan Desa
         </h2>
         <p class="text-slate-600 text-sm sm:text-base mt-2">
-          Potret dinamika pembangunan desa, kegiatan kemasyarakatan, penyaluran program sosial, dan kebersamaan warga Desa Majelis Hidayah.
+          Koleksi dokumentasi resmi kegiatan pembangunan, musyawarah, dan pelayanan warga Desa Majelis Hidayah. Klik foto mana saja untuk membuka tampilan galeri interaktif.
         </p>
       </div>
 
-      <!-- Gallery Grid -->
+      <!-- Gallery Grid: Pure Photo Cards with Titles Only -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Item 1: Musrenbangdes -->
-        <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200 group flex flex-col justify-between">
-          <div>
-            <div class="relative overflow-hidden h-56 bg-slate-100">
-              <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=700&q=80" alt="Musyawarah Perencanaan Desa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <span class="absolute top-3 left-3 bg-gov-blue/90 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm border border-white/20">
-                Musyawarah Desa
-              </span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-base font-bold text-slate-900 group-hover:text-gov-blue transition-colors mb-2">
+        <!-- Photo 1 -->
+        <div onclick="openGalleryModal(0)" class="group relative rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-200 bg-slate-900">
+          <div class="aspect-[4/3] w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80" alt="Musyawarah Rencana Kerja Pemerintah Desa (Musrenbangdes)" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent opacity-85 group-hover:opacity-95 transition-opacity"></div>
+            <span class="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-emerald-300 text-xs font-semibold px-3 py-1 rounded-full border border-white/10">
+              Musyawarah Desa
+            </span>
+            <span class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/50 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white/20">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+            </span>
+            <div class="absolute bottom-0 left-0 right-0 p-5">
+              <h3 class="text-white font-bold text-base sm:text-lg leading-snug group-hover:text-emerald-300 transition-colors">
                 Musyawarah Rencana Kerja Pemerintah Desa (Musrenbangdes)
               </h3>
-              <p class="text-slate-600 text-xs leading-relaxed">
-                Rapat pleno perencanaan pembangunan tahunan bersama BPD, perangkat desa, pendamping desa, serta tokoh masyarakat Dusun I, II, dan III.
+              <p class="text-slate-300 text-xs mt-1.5 flex items-center gap-1.5 opacity-90">
+                <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                <span>Buka tampilan foto</span>
               </p>
             </div>
           </div>
-          <div class="px-6 pb-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-            <span>📍 Balai Desa Majelis Hidayah</span>
-            <span class="text-emerald-700 font-semibold font-mono">Dusun II</span>
-          </div>
         </div>
 
-        <!-- Item 2: Penyaluran BLT -->
-        <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200 group flex flex-col justify-between">
-          <div>
-            <div class="relative overflow-hidden h-56 bg-slate-100">
-              <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=700&q=80" alt="Penyaluran BLT Dana Desa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <span class="absolute top-3 left-3 bg-purple-700/90 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm border border-white/20">
-                Bantuan Sosial
-              </span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-base font-bold text-slate-900 group-hover:text-gov-blue transition-colors mb-2">
+        <!-- Photo 2 -->
+        <div onclick="openGalleryModal(1)" class="group relative rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-200 bg-slate-900">
+          <div class="aspect-[4/3] w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80" alt="Penyaluran Bantuan Langsung Tunai (BLT Dana Desa)" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent opacity-85 group-hover:opacity-95 transition-opacity"></div>
+            <span class="absolute top-3 left-3 bg-purple-900/70 backdrop-blur-md text-purple-200 text-xs font-semibold px-3 py-1 rounded-full border border-white/10">
+              Bantuan Sosial
+            </span>
+            <span class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/50 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white/20">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+            </span>
+            <div class="absolute bottom-0 left-0 right-0 p-5">
+              <h3 class="text-white font-bold text-base sm:text-lg leading-snug group-hover:text-emerald-300 transition-colors">
                 Penyaluran Bantuan Langsung Tunai (BLT Dana Desa)
               </h3>
-              <p class="text-slate-600 text-xs leading-relaxed">
-                Pemerintah desa menyalurkan bantuan jaring pengaman sosial tunai kepada Keluarga Penerima Manfaat secara langsung, tertib, dan transparan.
+              <p class="text-slate-300 text-xs mt-1.5 flex items-center gap-1.5 opacity-90">
+                <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                <span>Buka tampilan foto</span>
               </p>
             </div>
           </div>
-          <div class="px-6 pb-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-            <span>📍 Aula Balai Pertemuan</span>
-            <span class="text-emerald-700 font-semibold font-mono">Transparan</span>
-          </div>
         </div>
 
-        <!-- Item 3: Gotong Royong Titian -->
-        <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200 group flex flex-col justify-between">
-          <div>
-            <div class="relative overflow-hidden h-56 bg-slate-100">
-              <img src="https://images.unsplash.com/photo-1541888946425-d0fbb1861593?auto=format&fit=crop&w=700&q=80" alt="Gotong Royong Titian Jalan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <span class="absolute top-3 left-3 bg-blue-700/90 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm border border-white/20">
-                Infrastruktur Dusun
-              </span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-base font-bold text-slate-900 group-hover:text-gov-blue transition-colors mb-2">
+        <!-- Photo 3 -->
+        <div onclick="openGalleryModal(2)" class="group relative rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-200 bg-slate-900">
+          <div class="aspect-[4/3] w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1541888946425-d0fbb1861593?auto=format&fit=crop&w=800&q=80" alt="Gotong Royong Perbaikan Jalan Titian Beton Pesisir" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent opacity-85 group-hover:opacity-95 transition-opacity"></div>
+            <span class="absolute top-3 left-3 bg-blue-900/70 backdrop-blur-md text-blue-200 text-xs font-semibold px-3 py-1 rounded-full border border-white/10">
+              Infrastruktur Dusun
+            </span>
+            <span class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/50 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white/20">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+            </span>
+            <div class="absolute bottom-0 left-0 right-0 p-5">
+              <h3 class="text-white font-bold text-base sm:text-lg leading-snug group-hover:text-emerald-300 transition-colors">
                 Gotong Royong Perbaikan Jalan Titian Beton Pesisir
               </h3>
-              <p class="text-slate-600 text-xs leading-relaxed">
-                Aparatur desa bersama warga masyarakat kompak bergotong royong merehabilitasi titian jalan cor beton penghubung antar-lingkungan rukun tetangga.
+              <p class="text-slate-300 text-xs mt-1.5 flex items-center gap-1.5 opacity-90">
+                <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                <span>Buka tampilan foto</span>
               </p>
             </div>
           </div>
-          <div class="px-6 pb-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-            <span>📍 Titian Penghubung RT</span>
-            <span class="text-emerald-700 font-semibold font-mono">Dusun I & III</span>
-          </div>
         </div>
 
-        <!-- Item 4: Pelayanan Kependudukan -->
-        <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200 group flex flex-col justify-between">
-          <div>
-            <div class="relative overflow-hidden h-56 bg-slate-100">
-              <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=700&q=80" alt="Pelayanan Administrasi Warga" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <span class="absolute top-3 left-3 bg-teal-700/90 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm border border-white/20">
-                Pelayanan Terpadu
-              </span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-base font-bold text-slate-900 group-hover:text-gov-blue transition-colors mb-2">
+        <!-- Photo 4 -->
+        <div onclick="openGalleryModal(3)" class="group relative rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-200 bg-slate-900">
+          <div class="aspect-[4/3] w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80" alt="Pelayanan Administrasi Kependudukan & Catatan Sipil" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent opacity-85 group-hover:opacity-95 transition-opacity"></div>
+            <span class="absolute top-3 left-3 bg-teal-900/70 backdrop-blur-md text-teal-200 text-xs font-semibold px-3 py-1 rounded-full border border-white/10">
+              Pelayanan Terpadu
+            </span>
+            <span class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/50 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white/20">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+            </span>
+            <div class="absolute bottom-0 left-0 right-0 p-5">
+              <h3 class="text-white font-bold text-base sm:text-lg leading-snug group-hover:text-emerald-300 transition-colors">
                 Pelayanan Administrasi Kependudukan & Catatan Sipil
               </h3>
-              <p class="text-slate-600 text-xs leading-relaxed">
-                Kegiatan pelayanan jemput bola perekaman KTP Elektronik, aktivasi IKD, dan pengurusan akta catatan sipil untuk memudahkan warga desa.
+              <p class="text-slate-300 text-xs mt-1.5 flex items-center gap-1.5 opacity-90">
+                <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                <span>Buka tampilan foto</span>
               </p>
             </div>
           </div>
-          <div class="px-6 pb-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-            <span>📍 Kantor Desa Majelis Hidayah</span>
-            <span class="text-emerald-700 font-semibold font-mono">Gratis</span>
-          </div>
         </div>
 
-        <!-- Item 5: Kegiatan Keagamaan -->
-        <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200 group flex flex-col justify-between">
-          <div>
-            <div class="relative overflow-hidden h-56 bg-slate-100">
-              <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=700&q=80" alt="Pengajian dan Peringatan Keagamaan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <span class="absolute top-3 left-3 bg-emerald-700/90 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm border border-white/20">
-                Keagamaan & Majelis
-              </span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-base font-bold text-slate-900 group-hover:text-gov-blue transition-colors mb-2">
+        <!-- Photo 5 -->
+        <div onclick="openGalleryModal(4)" class="group relative rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-200 bg-slate-900">
+          <div class="aspect-[4/3] w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=800&q=80" alt="Peringatan Hari Besar Islam & Pengajian Akbar" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent opacity-85 group-hover:opacity-95 transition-opacity"></div>
+            <span class="absolute top-3 left-3 bg-emerald-900/70 backdrop-blur-md text-emerald-200 text-xs font-semibold px-3 py-1 rounded-full border border-white/10">
+              Keagamaan & Majelis
+            </span>
+            <span class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/50 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white/20">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+            </span>
+            <div class="absolute bottom-0 left-0 right-0 p-5">
+              <h3 class="text-white font-bold text-base sm:text-lg leading-snug group-hover:text-emerald-300 transition-colors">
                 Peringatan Hari Besar Islam & Pengajian Akbar
               </h3>
-              <p class="text-slate-600 text-xs leading-relaxed">
-                Menyemarakkan syiar Islam melalui pengajian majelis taklim, pembinaan remaja masjid, dan doa bersama demi keberkahan dan ketentraman warga desa.
+              <p class="text-slate-300 text-xs mt-1.5 flex items-center gap-1.5 opacity-90">
+                <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                <span>Buka tampilan foto</span>
               </p>
             </div>
-          </div>
-          <div class="px-6 pb-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-            <span>📍 Masjid Jami Al-Hidayah</span>
-            <span class="text-emerald-700 font-semibold font-mono">Dusun II</span>
           </div>
         </div>
 
-        <!-- Item 6: Posyandu & Kesehatan -->
-        <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200 group flex flex-col justify-between">
-          <div>
-            <div class="relative overflow-hidden h-56 bg-slate-100">
-              <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=700&q=80" alt="Posyandu Balita dan Lansia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <span class="absolute top-3 left-3 bg-amber-600/90 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm border border-white/20">
-                Kesehatan Warga
-              </span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-base font-bold text-slate-900 group-hover:text-gov-blue transition-colors mb-2">
+        <!-- Photo 6 -->
+        <div onclick="openGalleryModal(5)" class="group relative rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-200 bg-slate-900">
+          <div class="aspect-[4/3] w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80" alt="Pemeriksaan Posyandu Balita & Posbindu Lansia" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent opacity-85 group-hover:opacity-95 transition-opacity"></div>
+            <span class="absolute top-3 left-3 bg-amber-900/70 backdrop-blur-md text-amber-200 text-xs font-semibold px-3 py-1 rounded-full border border-white/10">
+              Kesehatan Warga
+            </span>
+            <span class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/50 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white/20">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+            </span>
+            <div class="absolute bottom-0 left-0 right-0 p-5">
+              <h3 class="text-white font-bold text-base sm:text-lg leading-snug group-hover:text-emerald-300 transition-colors">
                 Pemeriksaan Posyandu Balita & Posbindu Lansia
               </h3>
-              <p class="text-slate-600 text-xs leading-relaxed">
-                Pelayanan kesehatan rutin meliputi penimbangan balita, imunisasi, pemantauan gizi, serta pemeriksaan tensi dan gula darah gratis bagi lansia.
+              <p class="text-slate-300 text-xs mt-1.5 flex items-center gap-1.5 opacity-90">
+                <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                <span>Buka tampilan foto</span>
               </p>
             </div>
-          </div>
-          <div class="px-6 pb-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-            <span>📍 Poskesdes Majelis Hidayah</span>
-            <span class="text-emerald-700 font-semibold font-mono">Keluarga Sehat</span>
           </div>
         </div>
       </div>
@@ -1183,6 +1177,44 @@
         <!-- Rendered by JS -->
       </div>
     </div>
+  </div>
+
+  <!-- D. Interactive Photo Gallery Lightbox Modal -->
+  <div id="gallery-lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/95 backdrop-blur-md p-3 sm:p-6 transition-all duration-300" role="dialog" aria-modal="true" onclick="closeGalleryModal()">
+    <!-- Top Bar Controls -->
+    <div class="absolute top-4 left-4 right-4 flex items-center justify-between z-30 pointer-events-auto" onclick="event.stopPropagation()">
+      <div class="flex items-center gap-2">
+        <span class="bg-white/10 backdrop-blur-md text-white text-xs font-semibold px-3.5 py-1.5 rounded-full border border-white/20">
+          <span id="gallery-counter">1 / 6</span>
+        </span>
+        <span id="gallery-badge" class="bg-emerald-500/20 text-emerald-300 text-xs font-medium px-3.5 py-1.5 rounded-full border border-emerald-500/30 hidden sm:inline-block"></span>
+      </div>
+      <button onclick="closeGalleryModal()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center transition-all duration-200 border border-white/20 hover:scale-110" title="Tutup (Esc)">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+    </div>
+
+    <!-- Prev Button -->
+    <button onclick="event.stopPropagation(); prevGalleryImage();" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-black/50 hover:bg-emerald-600 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all duration-200 hover:scale-110 shadow-2xl focus:outline-none" title="Foto Sebelumnya (Panah Kiri)">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+    </button>
+
+    <!-- Main Image & Title Container -->
+    <div class="relative max-w-5xl w-full flex flex-col items-center justify-center z-20 pointer-events-auto select-none" onclick="event.stopPropagation()">
+      <div class="relative overflow-hidden rounded-2xl shadow-2xl bg-black max-h-[72vh] flex items-center justify-center border border-white/10">
+        <img id="gallery-lightbox-img" src="" alt="" class="max-h-[72vh] w-auto max-w-full object-contain rounded-2xl transition-all duration-300">
+      </div>
+      <!-- Clean Title & Location underneath photo -->
+      <div class="mt-4 text-center max-w-2xl px-4">
+        <h3 id="gallery-lightbox-title" class="text-white font-bold text-lg sm:text-xl drop-shadow-md"></h3>
+        <p id="gallery-lightbox-location" class="text-slate-400 text-xs sm:text-sm mt-1.5 flex items-center justify-center gap-1.5"></p>
+      </div>
+    </div>
+
+    <!-- Next Button -->
+    <button onclick="event.stopPropagation(); nextGalleryImage();" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-black/50 hover:bg-emerald-600 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all duration-200 hover:scale-110 shadow-2xl focus:outline-none" title="Foto Selanjutnya (Panah Kanan)">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+    </button>
   </div>
 
   <!-- Main JavaScript Application Logic -->

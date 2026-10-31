@@ -1218,3 +1218,113 @@ function showToast(message) {
     toast.classList.add('translate-y-16', 'opacity-0');
   }, 3500);
 }
+
+/* ==========================================================================
+   11. Interactive Photo Gallery Lightbox Viewer
+   ========================================================================== */
+const GALLERY_ITEMS = [
+  {
+    title: 'Musyawarah Rencana Kerja Pemerintah Desa (Musrenbangdes)',
+    category: 'Musyawarah Desa',
+    location: '📍 Balai Pertemuan Desa Majelis Hidayah',
+    src: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1400&q=85'
+  },
+  {
+    title: 'Penyaluran Bantuan Langsung Tunai (BLT Dana Desa)',
+    category: 'Bantuan Sosial',
+    location: '📍 Aula Kantor Desa Majelis Hidayah',
+    src: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1400&q=85'
+  },
+  {
+    title: 'Gotong Royong Perbaikan Titian Jalan Beton Pesisir',
+    category: 'Infrastruktur Dusun',
+    location: '📍 Titian Penghubung RT Dusun I & Dusun III',
+    src: 'https://images.unsplash.com/photo-1541888946425-d0fbb1861593?auto=format&fit=crop&w=1400&q=85'
+  },
+  {
+    title: 'Pelayanan Administrasi Kependudukan & Catatan Sipil',
+    category: 'Pelayanan Terpadu',
+    location: '📍 Kantor Desa Majelis Hidayah',
+    src: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1400&q=85'
+  },
+  {
+    title: 'Peringatan Hari Besar Islam & Pengajian Akbar',
+    category: 'Keagamaan & Majelis',
+    location: '📍 Masjid Jami Al-Hidayah, Dusun II',
+    src: 'https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=1400&q=85'
+  },
+  {
+    title: 'Pemeriksaan Posyandu Balita & Posbindu Lansia',
+    category: 'Kesehatan Warga',
+    location: '📍 Poskesdes Desa Majelis Hidayah',
+    src: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1400&q=85'
+  }
+];
+
+let currentGalleryIndex = 0;
+
+window.openGalleryModal = function(index) {
+  currentGalleryIndex = index;
+  updateGalleryView();
+  const lightbox = document.getElementById('gallery-lightbox');
+  if (lightbox) {
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+};
+
+window.closeGalleryModal = function() {
+  const lightbox = document.getElementById('gallery-lightbox');
+  if (lightbox) {
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+};
+
+window.nextGalleryImage = function() {
+  currentGalleryIndex = (currentGalleryIndex + 1) % GALLERY_ITEMS.length;
+  updateGalleryView();
+};
+
+window.prevGalleryImage = function() {
+  currentGalleryIndex = (currentGalleryIndex - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length;
+  updateGalleryView();
+};
+
+function updateGalleryView() {
+  const item = GALLERY_ITEMS[currentGalleryIndex];
+  if (!item) return;
+
+  const img = document.getElementById('gallery-lightbox-img');
+  const title = document.getElementById('gallery-lightbox-title');
+  const location = document.getElementById('gallery-lightbox-location');
+  const counter = document.getElementById('gallery-counter');
+  const badge = document.getElementById('gallery-badge');
+
+  if (img) {
+    img.style.opacity = '0.3';
+    img.src = item.src;
+    img.alt = item.title;
+    img.onload = () => { img.style.opacity = '1'; };
+  }
+  if (title) title.textContent = item.title;
+  if (location) location.textContent = item.location;
+  if (counter) counter.textContent = `${currentGalleryIndex + 1} / ${GALLERY_ITEMS.length}`;
+  if (badge) badge.textContent = item.category;
+}
+
+// Keyboard controls for Gallery Lightbox
+document.addEventListener('keydown', (e) => {
+  const lightbox = document.getElementById('gallery-lightbox');
+  if (lightbox && !lightbox.classList.contains('hidden')) {
+    if (e.key === 'ArrowRight') {
+      window.nextGalleryImage();
+    } else if (e.key === 'ArrowLeft') {
+      window.prevGalleryImage();
+    } else if (e.key === 'Escape') {
+      window.closeGalleryModal();
+    }
+  }
+});
