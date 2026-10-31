@@ -452,7 +452,7 @@ const PERANGKAT_DATA = [
     category: 'staf',
     nip: 'SK Kades No. 11/MH/2023',
     period: '2023 - Sekarang',
-    avatar: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=600&q=80',
+    avatar: 'mita.jpg',
     description: 'Membantu Kepala Seksi Kesejahteraan & Pelayanan dalam administrasi program bantuan sosial, fasilitasi SKTM, dan pelayanan sosial kemasyarakatan.',
     tugas: [
       'Membantu pendataan dan verifikasi warga calon penerima bantuan sosial (BLT-DD, bansos).',
