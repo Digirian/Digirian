@@ -1,0 +1,186 @@
+/* ==========================================================================
+   Website Resmi Desa Majelis Hidayah - Custom Styles
+   Pemerintah Desa Majelis Hidayah, Kec. Kuala Jambi, Kab. Tanjung Jabung Timur
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+
+:root {
+  --color-gov-blue: #0B2545;
+  --color-gov-blue-light: #134074;
+  --color-gov-emerald: #059669;
+  --color-gov-emerald-light: #10B981;
+  --color-gov-gold: #D97706;
+  --color-gov-gold-light: #F59E0B;
+  --color-gov-surface: #F8FAFC;
+  --color-gov-border: #E2E8F0;
+  --font-base-multiplier: 1;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: calc(16px * var(--font-base-multiplier));
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Accessibility Modes */
+body.font-lg {
+  --font-base-multiplier: 1.125;
+}
+
+body.font-xl {
+  --font-base-multiplier: 1.25;
+}
+
+body.high-contrast {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+body.high-contrast * {
+  border-color: #ffffff !important;
+}
+
+body.high-contrast .bg-white,
+body.high-contrast .bg-slate-50,
+body.high-contrast .bg-slate-100,
+body.high-contrast .bg-gray-50,
+body.high-contrast .bg-blue-50,
+body.high-contrast .bg-emerald-50 {
+  background-color: #121212 !important;
+  color: #ffffff !important;
+}
+
+body.high-contrast .text-slate-600,
+body.high-contrast .text-slate-500,
+body.high-contrast .text-gray-500,
+body.high-contrast .text-gray-600 {
+  color: #e2e8f0 !important;
+}
+
+body.high-contrast .text-gov-blue,
+body.high-contrast .text-slate-900,
+body.high-contrast .text-gray-900 {
+  color: #ffff00 !important;
+}
+
+body.high-contrast a,
+body.high-contrast button.btn-primary {
+  color: #ffff00 !important;
+  background-color: #000000 !important;
+  border: 2px solid #ffff00 !important;
+}
+
+/* Focus indicator for Accessibility (WCAG 2.1 AA) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #F59E0B;
+  outline-offset: 2px;
+}
+
+/* Hero Background Pattern & Coastal Wave */
+.coastal-pattern {
+  background-color: #0B2545;
+  background-image: radial-gradient(rgba(16, 185, 129, 0.15) 1px, transparent 0), radial-gradient(rgba(245, 158, 11, 0.12) 1px, #0B2545 1px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+.wave-divider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 48px;
+}
+
+/* Glassmorphism Accents */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.glass-panel-dark {
+  background: rgba(11, 37, 69, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Badge Pulse */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.pulse-badge {
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+/* Print Stylesheet for Surat / Bukti Permohonan */
+@media print {
+  header,
+  footer,
+  #hero,
+  #profil,
+  #struktur,
+  #berita,
+  #potensi,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 12pt;
+  }
+
+  .print-area {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+  }
+}
+
+/* Animation Utilities */
+.transition-smooth {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
