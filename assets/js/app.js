@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Website Resmi Desa Majelis Hidayah - Main Interactive Application
  * Kecamatan Kuala Jambi, Kabupaten Tanjung Jabung Timur, Provinsi Jambi
  */
@@ -40,7 +40,7 @@ function initRealtimeClock() {
     const timeStr = `${hours}:${minutes}:${seconds} WIB`;
 
     if (clockElement) {
-      clockElement.textContent = `${dateStr} • ${timeStr}`;
+      clockElement.textContent = `${dateStr} â€¢ ${timeStr}`;
     }
 
     if (greetingElement) {
@@ -87,7 +87,7 @@ function updateOfficeStatus(now = new Date()) {
   if (day >= 1 && day <= 4) {
     if (timeDecimal >= 8.0 && timeDecimal < 16.0) {
       isOpen = true;
-      statusBadgeText = 'BUKA • 08.00 - 16.00 WIB';
+      statusBadgeText = 'BUKA â€¢ 08.00 - 16.00 WIB';
       tooltipBadgeText = 'BUKA SEKARANG';
     } else {
       isOpen = false;
@@ -99,7 +99,7 @@ function updateOfficeStatus(now = new Date()) {
   else if (day === 5) {
     if (timeDecimal >= 8.0 && timeDecimal < 11.5) {
       isOpen = true;
-      statusBadgeText = 'BUKA • 08.00 - 11.30 WIB';
+      statusBadgeText = 'BUKA â€¢ 08.00 - 11.30 WIB';
       tooltipBadgeText = 'BUKA SEKARANG';
     } else {
       isOpen = false;
@@ -110,7 +110,7 @@ function updateOfficeStatus(now = new Date()) {
   // Sabtu (6) & Minggu (0): TUTUP / Istirahat
   else {
     isOpen = false;
-    statusBadgeText = 'TUTUP • Istirahat';
+    statusBadgeText = 'TUTUP â€¢ Istirahat';
     tooltipBadgeText = 'LIBUR / ISTIRAHAT';
   }
 
@@ -551,7 +551,7 @@ window.openPerangkatModal = function(id) {
           </span>
           <h3 class="text-2xl font-bold text-slate-900">${person.name}</h3>
           <p class="text-gov-blue font-semibold text-base mt-1">${person.title}</p>
-          <p class="text-slate-500 text-sm mt-1 font-mono">${person.nip} • Masa Bakti: ${person.period}</p>
+          <p class="text-slate-500 text-sm mt-1 font-mono">${person.nip} â€¢ Masa Bakti: ${person.period}</p>
         </div>
       </div>
       
@@ -745,19 +745,19 @@ function initPublicServiceForms() {
 *Tanggal        :* ${today}
 ------------------------------------
 *DATA PEMOHON:*
-• *Nama Lengkap :* ${nama}
-• *NIK          :* ${nik}
-• *No. WhatsApp :* ${phone}
-• *Wilayah/Dusun:* ${dusun}
+â€¢ *Nama Lengkap :* ${nama}
+â€¢ *NIK          :* ${nik}
+â€¢ *No. WhatsApp :* ${phone}
+â€¢ *Wilayah/Dusun:* ${dusun}
 
 *DETAIL SURAT:*
-• *Jenis Layanan:* ${type}
-• *Keperluan    :* ${keperluan}
-${extraInfo ? `• *Keterangan Tambahan:* ${extraInfo}\n` : ''}------------------------------------
+â€¢ *Jenis Layanan:* ${type}
+â€¢ *Keperluan    :* ${keperluan}
+${extraInfo ? `â€¢ *Keterangan Tambahan:* ${extraInfo}\n` : ''}------------------------------------
 *LAMPIRAN PERSYARATAN:*
 _Saya melampirkan foto KTP / KK pada chat ini untuk diverifikasi oleh perangkat desa._
 
-Mohon dapat diproses. Terima kasih! 🙏`;
+Mohon dapat diproses. Terima kasih! ðŸ™`;
 
       const waUrl = `https://wa.me/${ADMIN_WA_NUMBER}?text=${encodeURIComponent(waMessageText)}`;
 
@@ -839,7 +839,7 @@ function openReceiptModal(data) {
           <span>Kirim Berkas ke WhatsApp Admin (0851-5666-5733)</span>
         </a>
         <div class="mt-3 flex items-start gap-2 text-xs text-emerald-900 bg-white/70 p-2.5 rounded-xl border border-emerald-200">
-          <span class="text-base flex-shrink-0">📲</span>
+          <span class="text-base flex-shrink-0">ðŸ“²</span>
           <span>
             <strong>Langkah Terakhir:</strong> Setelah WhatsApp terbuka, tekan <strong>Kirim</strong>, lalu <strong>lampirkan foto KTP / KK</strong> langsung di chat tersebut agar admin desa bisa langsung memproses berkas Anda.
           </span>
@@ -960,7 +960,7 @@ function initLetterTracker() {
       return `
         <div class="flex-1 text-center relative px-2">
           <div class="w-10 h-10 rounded-full mx-auto flex items-center justify-center text-sm ${circleClass} transition-all duration-300">
-            ${isPastOrCurrent ? (s.num < match.step ? '✓' : s.num) : s.num}
+            ${isPastOrCurrent ? (s.num < match.step ? 'âœ“' : s.num) : s.num}
           </div>
           <h5 class="text-xs font-bold text-slate-800 mt-2">${s.title}</h5>
           <p class="text-[11px] text-slate-500 hidden sm:block">${s.desc}</p>
@@ -974,7 +974,7 @@ function initLetterTracker() {
           <div>
             <span class="text-xs uppercase font-bold text-emerald-700 tracking-wider">Hasil Pelacakan Berkas</span>
             <h4 class="text-xl font-extrabold text-gov-blue">${match.ticket}</h4>
-            <p class="text-xs text-slate-500">${match.type} • Pemohon: <strong>${match.name}</strong></p>
+            <p class="text-xs text-slate-500">${match.type} â€¢ Pemohon: <strong>${match.name}</strong></p>
           </div>
           <div class="flex items-center gap-2">
             <span class="px-3.5 py-1.5 rounded-full text-xs font-bold ${match.step === 4 ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">
@@ -1001,7 +1001,7 @@ function initLetterTracker() {
           <div class="text-xs">
             <span class="font-bold text-slate-800 block mb-0.5">Catatan Petugas Layanan Desa:</span>
             <p class="text-slate-600 leading-relaxed">${match.note}</p>
-            <span class="text-slate-400 mt-2 block">Dusun: ${match.dusun} • Tanggal Input: ${match.date}</span>
+            <span class="text-slate-400 mt-2 block">Dusun: ${match.dusun} â€¢ Tanggal Input: ${match.date}</span>
           </div>
         </div>
       </div>
@@ -1125,7 +1125,7 @@ function initNewsFilter() {
           <div>
             <div class="flex items-center gap-3 text-xs text-slate-500 mb-2 font-medium">
               <span>${article.date}</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span>${article.author}</span>
             </div>
             <h3 class="text-lg font-bold text-slate-900 group-hover:text-gov-blue transition-colors line-clamp-2 leading-snug mb-3">
@@ -1183,11 +1183,11 @@ window.openNewsModal = function(id) {
           ${article.title}
         </h2>
         <div class="flex flex-wrap items-center gap-3 text-xs text-slate-500 mt-3">
-          <span>📅 ${article.date}</span>
-          <span>•</span>
-          <span>✍️ Ditulis oleh: ${article.author}</span>
-          <span>•</span>
-          <span>📍 Desa Majelis Hidayah, Kuala Jambi</span>
+          <span>ðŸ“… ${article.date}</span>
+          <span>â€¢</span>
+          <span>âœï¸ Ditulis oleh: ${article.author}</span>
+          <span>â€¢</span>
+          <span>ðŸ“ Desa Majelis Hidayah, Kuala Jambi</span>
         </div>
       </div>
 
@@ -1312,42 +1312,6 @@ const GALLERY_ITEMS = [
     category: "Pemerintahan Desa",
     location: "📍 Aula Kantor Desa Majelis Hidayah",
     src: "galeri-rapat.jpg"
-  },
-  {
-    title: 'Musyawarah Rencana Kerja Pemerintah Desa (Musrenbangdes)',
-    category: 'Musyawarah Desa',
-    location: '📍 Balai Pertemuan Desa Majelis Hidayah',
-    src: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1400&q=85'
-  },
-  {
-    title: 'Penyaluran Bantuan Langsung Tunai (BLT Dana Desa)',
-    category: 'Bantuan Sosial',
-    location: '📍 Aula Kantor Desa Majelis Hidayah',
-    src: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1400&q=85'
-  },
-  {
-    title: 'Gotong Royong Perbaikan Titian Jalan Beton Pesisir',
-    category: 'Infrastruktur Dusun',
-    location: '📍 Titian Penghubung RT Dusun I & Dusun III',
-    src: 'https://images.unsplash.com/photo-1541888946425-d0fbb1861593?auto=format&fit=crop&w=1400&q=85'
-  },
-  {
-    title: 'Pelayanan Administrasi Kependudukan & Catatan Sipil',
-    category: 'Pelayanan Terpadu',
-    location: '📍 Kantor Desa Majelis Hidayah',
-    src: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1400&q=85'
-  },
-  {
-    title: 'Peringatan Hari Besar Islam & Pengajian Akbar',
-    category: 'Keagamaan & Majelis',
-    location: '📍 Masjid Jami Al-Hidayah, Dusun II',
-    src: 'https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=1400&q=85'
-  },
-  {
-    title: 'Pemeriksaan Posyandu Balita & Posbindu Lansia',
-    category: 'Kesehatan Warga',
-    location: '📍 Poskesdes Desa Majelis Hidayah',
-    src: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1400&q=85'
   }
 ];
 
