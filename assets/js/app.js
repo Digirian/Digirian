@@ -347,7 +347,7 @@ const PERANGKAT_DATA = [
     category: 'seksi',
     nip: 'SK Kades No. 10/MH/2021',
     period: '2021 - Sekarang',
-    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80',
+    avatar: 'ratna.jpg',
     description: 'Mengelola program jaring pengaman sosial, posyandu, fasilitasi bantuan nelayan dan petani, serta urusan pelayanan kemasyarakatan.',
     tugas: [
       'Penyaluran BLT Dana Desa, program jaring sosial, dan bantuan nelayan/petani.',
