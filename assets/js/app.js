@@ -321,11 +321,71 @@ const PERANGKAT_DATA = [
     nip: 'SK Kades No. 18/MH/2020',
     period: '2020 - Sekarang',
     avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80',
-    description: 'Koordinator kewilayahan DUSUN III yang membawahi RT 07 sampai RT 09 dengan fokus kawasan perkebunan kelapa dalam dan pinang masyarakat.',
+    description: 'Koordinator kewilayahan DUSUN III yang membawahi RT 07 sampai RT 09 dengan fokus ketertiban warga, pemeliharaan lingkungan, dan koordinasi masyarakat.',
     tugas: [
-      'Pembinaan kelompok tani perkebunan kelapa dalam dan pinang betara.',
-      'Pengawasan tata kelola saluran primer air pasang surut di Dusun III.',
-      'Pelaporan data warga rentan, lansia, dan ketertiban lingkungan dusun.'
+      'Pembinaan ketertiban masyarakat dan koordinasi gotong royong Dusun III.',
+      'Pengawasan tata kelola sarana fasilitas umum di lingkungan Dusun III.',
+      'Pelaporan data warga rentan, lansia, dan pelayanan administrasi dusun.'
+    ]
+  },
+  {
+    id: 10,
+    name: 'Irma Suryani',
+    title: 'Staf Kaur Umum & Perencanaan',
+    category: 'staf',
+    nip: 'SK Kades No. 08/MH/2023',
+    period: '2023 - Sekarang',
+    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80',
+    description: 'Membantu Kepala Urusan Umum & Perencanaan dalam tata kelola administrasi ketatausahaan, pengarsipan berkas desa, dan inventarisasi aset desa.',
+    tugas: [
+      'Membantu pengarsipan surat masuk, surat keluar, dan administrasi umum perkantoran desa.',
+      'Membantu pencatatan inventaris barang milik desa dan sarana prasarana kantor desa.',
+      'Mendukung penyiapan dokumen rapat musyawarah desa serta administrasi perencanaan.'
+    ]
+  },
+  {
+    id: 11,
+    name: 'Novi',
+    title: 'Staf Kasi Pemerintahan',
+    category: 'staf',
+    nip: 'SK Kades No. 09/MH/2023',
+    period: '2023 - Sekarang',
+    avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80',
+    description: 'Membantu Kepala Seksi Pemerintahan dalam administrasi kependudukan, registrasi surat warga, dan pembinaan ketertiban masyarakat.',
+    tugas: [
+      'Membantu penerimaan dan verifikasi awal berkas permohonan surat kependudukan warga.',
+      'Membantu pemutakhiran buku register kependudukan desa dan pengelolaan profil desa.',
+      'Membantu administrasi koordinasi linmas dan pemeliharaan ketentraman lingkungan.'
+    ]
+  },
+  {
+    id: 12,
+    name: 'Suci Nur Apriza',
+    title: 'Staf Keuangan',
+    category: 'staf',
+    nip: 'SK Kades No. 10/MH/2023',
+    period: '2023 - Sekarang',
+    avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80',
+    description: 'Membantu Kepala Urusan Keuangan dalam pencatatan transaksi kas desa, pengarsipan bukti belanja, dan administrasi penatausahaan keuangan desa.',
+    tugas: [
+      'Membantu pembukuan tanda bukti penerimaan dan pengeluaran kas operasional desa.',
+      'Membantu penyiapan kelengkapan Surat Permintaan Pembayaran (SPP) kegiatan APBDes.',
+      'Membantu pengarsipan dokumen bukti transaksi pertanggungjawaban keuangan desa.'
+    ]
+  },
+  {
+    id: 13,
+    name: 'Mita Saodah',
+    title: 'Staf Kasi Kesejahteraan dan Pelayanan',
+    category: 'staf',
+    nip: 'SK Kades No. 11/MH/2023',
+    period: '2023 - Sekarang',
+    avatar: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=600&q=80',
+    description: 'Membantu Kepala Seksi Kesejahteraan & Pelayanan dalam administrasi program bantuan sosial, fasilitasi SKTM, dan pelayanan sosial kemasyarakatan.',
+    tugas: [
+      'Membantu pendataan dan verifikasi warga calon penerima bantuan sosial (BLT-DD, bansos).',
+      'Membantu proses administrasi Surat Keterangan Tidak Mampu (SKTM) dan rujukan warga.',
+      'Mendukung fasilitasi kegiatan kemasyarakatan, posyandu, dan pembinaan kesejahteraan keluarga.'
     ]
   }
 ];
