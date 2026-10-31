@@ -73,9 +73,9 @@
           
           <!-- Modern Live Office Hours Status Badge (Jadwal Kantor Desa) -->
           <div class="relative group cursor-pointer" id="office-status-container" title="Klik / Arahkan kursor untuk melihat rincian jadwal pelayanan">
-            <div id="office-status-badge" class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold tracking-wide transition-all duration-300 shadow-sm border bg-slate-800/80 text-slate-300 border-slate-700 backdrop-blur-md">
-              <span id="office-status-dot" class="w-2 h-2 rounded-full bg-slate-400"></span>
-              <span id="office-status-text">Memeriksa Jam Kantor...</span>
+            <div id="office-status-badge" class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold tracking-wide transition-all duration-300 shadow-sm border bg-rose-500/20 text-rose-300 border-rose-400/40 hover:bg-rose-500/30 backdrop-blur-md">
+              <span id="office-status-dot" class="w-2 h-2 rounded-full bg-rose-400 shadow-[0_0_8px_rgba(244,63,94,0.8)]"></span>
+              <span id="office-status-text">TUTUP</span>
               <svg class="w-3 h-3 opacity-60 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
 
@@ -86,7 +86,7 @@
                   <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                   <span class="font-bold text-white">Jadwal Pelayanan Kantor</span>
                 </div>
-                <span id="tooltip-current-status" class="text-[10px] font-bold px-2 py-0.5 rounded-full"></span>
+                <span id="tooltip-current-status" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/40">SEDANG TUTUP</span>
               </div>
               <ul class="space-y-2 text-[11px]">
                 <li class="flex items-center justify-between py-1 border-b border-white/5">
@@ -108,6 +108,39 @@
               </div>
             </div>
           </div>
+          <script>
+            (function() {
+              function setLiveOfficeImmediate() {
+                var now = new Date();
+                var day = now.getDay();
+                var time = now.getHours() + (now.getMinutes() / 60);
+                var open = (day >= 1 && day <= 4 && time >= 8.0 && time < 16.0) || (day === 5 && time >= 8.0 && time < 11.5);
+                var badge = document.getElementById('office-status-badge');
+                var dot = document.getElementById('office-status-dot');
+                var text = document.getElementById('office-status-text');
+                var tip = document.getElementById('tooltip-current-status');
+                if (!badge || !dot || !text) return;
+                if (open) {
+                  badge.className = 'inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold tracking-wide transition-all duration-300 shadow-sm border bg-emerald-500/20 text-emerald-300 border-emerald-400/40 hover:bg-emerald-500/30 backdrop-blur-md';
+                  dot.className = 'w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]';
+                  text.textContent = 'BUKA • 08.00 - ' + (day === 5 ? '11.30' : '16.00') + ' WIB';
+                  if (tip) {
+                    tip.className = 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40';
+                    tip.textContent = 'BUKA SEKARANG';
+                  }
+                } else {
+                  badge.className = 'inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold tracking-wide transition-all duration-300 shadow-sm border bg-rose-500/20 text-rose-300 border-rose-400/40 hover:bg-rose-500/30 backdrop-blur-md';
+                  dot.className = 'w-2 h-2 rounded-full bg-rose-400 shadow-[0_0_8px_rgba(244,63,94,0.8)]';
+                  text.textContent = (day === 0 || day === 6) ? 'TUTUP • Istirahat' : 'TUTUP';
+                  if (tip) {
+                    tip.className = 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/40';
+                    tip.textContent = (day === 0 || day === 6) ? 'LIBUR / ISTIRAHAT' : 'SEDANG TUTUP';
+                  }
+                }
+              }
+              setLiveOfficeImmediate();
+            })();
+          </script>
 
           <!-- Mode Kontras Aksesibilitas -->
           <button id="toggle-contrast" aria-label="Beralih Mode Kontras Tinggi" class="px-2.5 py-1 rounded-full text-xs flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/15 text-slate-200 transition-colors" title="Mode Kontras Tinggi">
@@ -968,13 +1001,90 @@
   </section>
 
   <!-- ==========================================================================
-       9. Official Footer (Alamat Resmi, Kontak, & Hak Cipta)
+       9. Tautan Terkait Pemerintahan (Posisi Paling Bawah, Tepat Di Atas Footer)
+       ========================================================================== -->
+  <section id="tautan" class="py-12 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">Integrasi Layanan & Portal Resmi</span>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-gov-blue tracking-tight mt-2">Tautan Terkait Pemerintahan</h3>
+        </div>
+        <p class="text-xs text-slate-500 max-w-md">Akses cepat menuju portal resmi pemerintah kabupaten, kementerian, dan pelayanan mandiri warga.</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+        <!-- Tautan 1 -->
+        <a href="https://tanjabtimkab.go.id" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-50 hover:bg-emerald-50/50 border border-slate-200 hover:border-emerald-500/50 hover:shadow-md transition-all group flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xl">🏛️</span>
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-xs text-slate-900 group-hover:text-emerald-700 leading-snug">Pemkab Tanjung Jabung Timur</h4>
+            <p class="text-[10px] text-slate-500 mt-1">Portal Daerah Resmi</p>
+          </div>
+        </a>
+
+        <!-- Tautan 2 -->
+        <a href="https://kemendesa.go.id" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-50 hover:bg-emerald-50/50 border border-slate-200 hover:border-emerald-500/50 hover:shadow-md transition-all group flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xl">🇮🇩</span>
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-xs text-slate-900 group-hover:text-emerald-700 leading-snug">Kementerian Desa PDTT</h4>
+            <p class="text-[10px] text-slate-500 mt-1">Pemberdayaan Desa RI</p>
+          </div>
+        </a>
+
+        <!-- Tautan 3 -->
+        <a href="https://dukcapil.kemendagri.go.id" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-50 hover:bg-emerald-50/50 border border-slate-200 hover:border-emerald-500/50 hover:shadow-md transition-all group flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xl">🪪</span>
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-xs text-slate-900 group-hover:text-emerald-700 leading-snug">Ditjen Dukcapil RI</h4>
+            <p class="text-[10px] text-slate-500 mt-1">Layanan IKD & Kependudukan</p>
+          </div>
+        </a>
+
+        <!-- Tautan 4 -->
+        <a href="#lacak" class="p-4 rounded-2xl bg-slate-50 hover:bg-emerald-50/50 border border-slate-200 hover:border-emerald-500/50 hover:shadow-md transition-all group flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xl">🔍</span>
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-xs text-slate-900 group-hover:text-emerald-700 leading-snug">Lacak Tiket Surat</h4>
+            <p class="text-[10px] text-slate-500 mt-1">Cek Status Layanan Mandiri</p>
+          </div>
+        </a>
+
+        <!-- Tautan 5 -->
+        <a href="#struktur" class="p-4 rounded-2xl bg-slate-50 hover:bg-emerald-50/50 border border-slate-200 hover:border-emerald-500/50 hover:shadow-md transition-all group flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xl">👥</span>
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-xs text-slate-900 group-hover:text-emerald-700 leading-snug">Aparatur & Staf Desa</h4>
+            <p class="text-[10px] text-slate-500 mt-1">Struktur Organisasi Desa</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       10. Official Footer (Alamat Resmi, Kontak, & Hak Cipta)
        ========================================================================== -->
   <footer id="kontak" class="bg-gov-blue text-slate-300 pt-16 pb-8 border-t border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
         <!-- Brand & Address -->
-        <div class="lg:col-span-5 space-y-4">
+        <div class="lg:col-span-7 space-y-4">
           <div class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center text-white font-bold shadow">
               🏛️
@@ -985,7 +1095,7 @@
             </div>
           </div>
 
-          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-md">
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-xl">
             Portal komunikasi dan pelayanan resmi masyarakat Desa Majelis Hidayah. Mengabdi dengan sepenuh hati demi kemajuan masyarakat pesisir yang bermartabat, agamis, dan sejahtera.
           </p>
 
@@ -1002,7 +1112,7 @@
         </div>
 
         <!-- Operating Hours & Contact Details -->
-        <div class="lg:col-span-4 space-y-4">
+        <div class="lg:col-span-5 space-y-4">
           <h4 class="text-sm font-bold text-white uppercase tracking-wider border-b border-slate-800 pb-2">
             Kontak Pelayanan & Jam Kerja
           </h4>
@@ -1029,36 +1139,6 @@
             <li>
               <span class="text-slate-400 block mb-0.5">Surat Elektronik Resmi:</span>
               <span class="font-mono text-slate-200">majelishidayah@gmail.com</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Quick Government Links -->
-        <div class="lg:col-span-3 space-y-4">
-          <h4 class="text-sm font-bold text-white uppercase tracking-wider border-b border-slate-800 pb-2">
-            Tautan Terkait
-          </h4>
-          <ul class="text-xs space-y-2">
-            <li>
-              <a href="https://tanjabtimkab.go.id" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                <span>Pemerintah Kab. Tanjung Jabung Timur</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://kemendesa.go.id" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                <span>Kementerian Desa PDTT</span>
-              </a>
-            </li>
-            <li>
-              <a href="#profil" class="hover:text-emerald-400 transition-colors">Visi & Misi Desa 2026-2031</a>
-            </li>
-            <li>
-              <a href="#lacak" class="hover:text-emerald-400 transition-colors">Cek Status Tiket Pelayanan</a>
-            </li>
-            <li>
-              <a href="#struktur" class="hover:text-emerald-400 transition-colors">Daftar Aparatur & Kepala Dusun</a>
             </li>
           </ul>
         </div>
@@ -1165,7 +1245,7 @@
           © 2026 Pemerintah Desa Majelis Hidayah, Kecamatan Kuala Jambi. Seluruh hak cipta dilindungi undang-undang.
         </div>
         <div class="text-[11px]">
-          <span class="text-emerald-500 font-semibold">Kuala Jambi Bersih & Berkelanjutan</span>
+          <span class="text-emerald-500 font-semibold">Desa Majelis Hidayah 2026</span>
         </div>
       </div>
     </div>
@@ -1249,6 +1329,6 @@
   </div>
 
   <!-- Main JavaScript Application Logic -->
-  <script src="assets/js/app.js"></script>
+  <script src="assets/js/app.js?v=2.2"></script>
 </body>
 </html>
