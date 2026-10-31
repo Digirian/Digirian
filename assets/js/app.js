@@ -437,7 +437,7 @@ const PERANGKAT_DATA = [
     category: 'staf',
     nip: 'SK Kades No. 10/MH/2023',
     period: '2023 - Sekarang',
-    avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80',
+    avatar: 'suci.jpg',
     description: 'Membantu Kepala Urusan Keuangan dalam pencatatan transaksi kas desa, pengarsipan bukti belanja, dan administrasi penatausahaan keuangan desa.',
     tugas: [
       'Membantu pembukuan tanda bukti penerimaan dan pengeluaran kas operasional desa.',
