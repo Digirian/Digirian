@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Website Resmi Desa Majelis Hidayah - Main Interactive Application
  * Kecamatan Kuala Jambi, Kabupaten Tanjung Jabung Timur, Provinsi Jambi
  */
@@ -40,7 +40,7 @@ function initRealtimeClock() {
     const timeStr = `${hours}:${minutes}:${seconds} WIB`;
 
     if (clockElement) {
-      clockElement.textContent = `${dateStr} â€¢ ${timeStr}`;
+      clockElement.textContent = `${dateStr} • ${timeStr}`;
     }
 
     if (greetingElement) {
@@ -87,7 +87,7 @@ function updateOfficeStatus(now = new Date()) {
   if (day >= 1 && day <= 4) {
     if (timeDecimal >= 8.0 && timeDecimal < 16.0) {
       isOpen = true;
-      statusBadgeText = 'BUKA â€¢ 08.00 - 16.00 WIB';
+      statusBadgeText = 'BUKA • 08.00 - 16.00 WIB';
       tooltipBadgeText = 'BUKA SEKARANG';
     } else {
       isOpen = false;
@@ -99,7 +99,7 @@ function updateOfficeStatus(now = new Date()) {
   else if (day === 5) {
     if (timeDecimal >= 8.0 && timeDecimal < 11.5) {
       isOpen = true;
-      statusBadgeText = 'BUKA â€¢ 08.00 - 11.30 WIB';
+      statusBadgeText = 'BUKA • 08.00 - 11.30 WIB';
       tooltipBadgeText = 'BUKA SEKARANG';
     } else {
       isOpen = false;
@@ -110,7 +110,7 @@ function updateOfficeStatus(now = new Date()) {
   // Sabtu (6) & Minggu (0): TUTUP / Istirahat
   else {
     isOpen = false;
-    statusBadgeText = 'TUTUP â€¢ Istirahat';
+    statusBadgeText = 'TUTUP • Istirahat';
     tooltipBadgeText = 'LIBUR / ISTIRAHAT';
   }
 
@@ -476,41 +476,37 @@ function initPerangkatFilter() {
 
     filtered.forEach(person => {
       const card = document.createElement('div');
-      card.className = 'bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200 overflow-hidden flex flex-col group cursor-pointer hover:-translate-y-1';
-      card.setAttribute('onclick', `openPerangkatModal(${person.id})`);
+      card.className = 'bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200 overflow-hidden flex flex-col group';
       
       card.innerHTML = `
-        <div class="relative aspect-[3/4] w-full overflow-hidden bg-slate-900">
-          <img src="${person.avatar}" alt="${person.name}" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-85 group-hover:opacity-90 transition-opacity"></div>
-          
-          <!-- Badges -->
-          <span class="absolute top-2.5 right-2.5 bg-emerald-600/90 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full backdrop-blur-sm border border-emerald-400/40">
-            Aktif
+        <div class="relative overflow-hidden bg-gradient-to-t from-slate-900 via-slate-800 to-slate-700 h-64">
+          <img src="${person.avatar}" alt="${person.name}" class="w-full h-full object-cover object-top opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-gov-blue/90 via-gov-blue/20 to-transparent"></div>
+          <span class="absolute top-4 right-4 bg-emerald-600/90 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm border border-emerald-400/40">
+            Aktif Melayani
           </span>
-          <span class="absolute top-2.5 left-2.5 bg-black/60 text-slate-200 text-[10px] font-medium px-2 py-0.5 rounded-full backdrop-blur-sm border border-white/10">
-            ${person.period}
-          </span>
-
-          <!-- Overlay Info on Bottom of Portrait Photo -->
-          <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4 text-white">
-            <span class="inline-block text-[11px] font-bold text-emerald-300 uppercase tracking-wide truncate mb-0.5">
-              ${person.title}
+          <div class="absolute bottom-4 left-4 right-4">
+            <span class="text-xs uppercase tracking-wider text-emerald-300 font-semibold block mb-1">
+              ${person.period}
             </span>
-            <h4 class="text-sm sm:text-base font-bold text-white group-hover:text-emerald-200 transition-colors line-clamp-1 leading-snug drop-shadow-sm">
-              ${person.name}
-            </h4>
-            <p class="text-[10px] sm:text-[11px] text-slate-300 font-mono mt-1 flex items-center gap-1 opacity-90 truncate">
-              <svg class="w-3 h-3 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-              <span class="truncate">${person.nip}</span>
-            </p>
+            <h4 class="text-white text-xl font-bold leading-tight drop-shadow-sm">${person.name}</h4>
+            <p class="text-slate-200 text-sm font-medium mt-0.5">${person.title}</p>
           </div>
         </div>
-        <div class="py-2.5 px-3 sm:px-4 bg-white flex items-center justify-between text-xs text-slate-600 group-hover:text-gov-blue transition-colors border-t border-slate-100 font-medium">
-          <span class="text-[11px] sm:text-xs font-semibold">Rincian Tugas &amp; Wewenang</span>
-          <div class="w-5 h-5 rounded-full bg-slate-100 group-hover:bg-gov-blue group-hover:text-white flex items-center justify-center transition-colors">
-            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        <div class="p-6 flex-1 flex flex-col justify-between bg-white">
+          <div>
+            <div class="flex items-center gap-2 mb-3 text-xs text-slate-500 font-mono">
+              <svg class="w-4 h-4 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+              <span>${person.nip}</span>
+            </div>
+            <p class="text-slate-600 text-sm line-clamp-3 leading-relaxed mb-4">
+              ${person.description}
+            </p>
           </div>
+          <button onclick="openPerangkatModal(${person.id})" class="w-full py-2.5 px-4 bg-slate-50 hover:bg-gov-blue hover:text-white text-slate-700 font-medium rounded-xl text-sm border border-slate-200 hover:border-gov-blue transition-all duration-200 flex items-center justify-center gap-2">
+            <span>Rincian Tugas & Wewenang</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </button>
         </div>
       `;
       cardsContainer.appendChild(card);
@@ -555,7 +551,7 @@ window.openPerangkatModal = function(id) {
           </span>
           <h3 class="text-2xl font-bold text-slate-900">${person.name}</h3>
           <p class="text-gov-blue font-semibold text-base mt-1">${person.title}</p>
-          <p class="text-slate-500 text-sm mt-1 font-mono">${person.nip} â€¢ Masa Bakti: ${person.period}</p>
+          <p class="text-slate-500 text-sm mt-1 font-mono">${person.nip} • Masa Bakti: ${person.period}</p>
         </div>
       </div>
       
@@ -749,19 +745,19 @@ function initPublicServiceForms() {
 *Tanggal        :* ${today}
 ------------------------------------
 *DATA PEMOHON:*
-â€¢ *Nama Lengkap :* ${nama}
-â€¢ *NIK          :* ${nik}
-â€¢ *No. WhatsApp :* ${phone}
-â€¢ *Wilayah/Dusun:* ${dusun}
+• *Nama Lengkap :* ${nama}
+• *NIK          :* ${nik}
+• *No. WhatsApp :* ${phone}
+• *Wilayah/Dusun:* ${dusun}
 
 *DETAIL SURAT:*
-â€¢ *Jenis Layanan:* ${type}
-â€¢ *Keperluan    :* ${keperluan}
-${extraInfo ? `â€¢ *Keterangan Tambahan:* ${extraInfo}\n` : ''}------------------------------------
+• *Jenis Layanan:* ${type}
+• *Keperluan    :* ${keperluan}
+${extraInfo ? `• *Keterangan Tambahan:* ${extraInfo}\n` : ''}------------------------------------
 *LAMPIRAN PERSYARATAN:*
 _Saya melampirkan foto KTP / KK pada chat ini untuk diverifikasi oleh perangkat desa._
 
-Mohon dapat diproses. Terima kasih! ðŸ™`;
+Mohon dapat diproses. Terima kasih! 🙏`;
 
       const waUrl = `https://wa.me/${ADMIN_WA_NUMBER}?text=${encodeURIComponent(waMessageText)}`;
 
@@ -843,7 +839,7 @@ function openReceiptModal(data) {
           <span>Kirim Berkas ke WhatsApp Admin (0851-5666-5733)</span>
         </a>
         <div class="mt-3 flex items-start gap-2 text-xs text-emerald-900 bg-white/70 p-2.5 rounded-xl border border-emerald-200">
-          <span class="text-base flex-shrink-0">ðŸ“²</span>
+          <span class="text-base flex-shrink-0">📲</span>
           <span>
             <strong>Langkah Terakhir:</strong> Setelah WhatsApp terbuka, tekan <strong>Kirim</strong>, lalu <strong>lampirkan foto KTP / KK</strong> langsung di chat tersebut agar admin desa bisa langsung memproses berkas Anda.
           </span>
@@ -964,7 +960,7 @@ function initLetterTracker() {
       return `
         <div class="flex-1 text-center relative px-2">
           <div class="w-10 h-10 rounded-full mx-auto flex items-center justify-center text-sm ${circleClass} transition-all duration-300">
-            ${isPastOrCurrent ? (s.num < match.step ? 'âœ“' : s.num) : s.num}
+            ${isPastOrCurrent ? (s.num < match.step ? '✓' : s.num) : s.num}
           </div>
           <h5 class="text-xs font-bold text-slate-800 mt-2">${s.title}</h5>
           <p class="text-[11px] text-slate-500 hidden sm:block">${s.desc}</p>
@@ -978,7 +974,7 @@ function initLetterTracker() {
           <div>
             <span class="text-xs uppercase font-bold text-emerald-700 tracking-wider">Hasil Pelacakan Berkas</span>
             <h4 class="text-xl font-extrabold text-gov-blue">${match.ticket}</h4>
-            <p class="text-xs text-slate-500">${match.type} â€¢ Pemohon: <strong>${match.name}</strong></p>
+            <p class="text-xs text-slate-500">${match.type} • Pemohon: <strong>${match.name}</strong></p>
           </div>
           <div class="flex items-center gap-2">
             <span class="px-3.5 py-1.5 rounded-full text-xs font-bold ${match.step === 4 ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">
@@ -1005,7 +1001,7 @@ function initLetterTracker() {
           <div class="text-xs">
             <span class="font-bold text-slate-800 block mb-0.5">Catatan Petugas Layanan Desa:</span>
             <p class="text-slate-600 leading-relaxed">${match.note}</p>
-            <span class="text-slate-400 mt-2 block">Dusun: ${match.dusun} â€¢ Tanggal Input: ${match.date}</span>
+            <span class="text-slate-400 mt-2 block">Dusun: ${match.dusun} • Tanggal Input: ${match.date}</span>
           </div>
         </div>
       </div>
@@ -1129,7 +1125,7 @@ function initNewsFilter() {
           <div>
             <div class="flex items-center gap-3 text-xs text-slate-500 mb-2 font-medium">
               <span>${article.date}</span>
-              <span>â€¢</span>
+              <span>•</span>
               <span>${article.author}</span>
             </div>
             <h3 class="text-lg font-bold text-slate-900 group-hover:text-gov-blue transition-colors line-clamp-2 leading-snug mb-3">
@@ -1187,11 +1183,11 @@ window.openNewsModal = function(id) {
           ${article.title}
         </h2>
         <div class="flex flex-wrap items-center gap-3 text-xs text-slate-500 mt-3">
-          <span>ðŸ“… ${article.date}</span>
-          <span>â€¢</span>
-          <span>âœï¸ Ditulis oleh: ${article.author}</span>
-          <span>â€¢</span>
-          <span>ðŸ“ Desa Majelis Hidayah, Kuala Jambi</span>
+          <span>📅 ${article.date}</span>
+          <span>•</span>
+          <span>✍️ Ditulis oleh: ${article.author}</span>
+          <span>•</span>
+          <span>📍 Desa Majelis Hidayah, Kuala Jambi</span>
         </div>
       </div>
 
@@ -1300,22 +1296,40 @@ function showToast(message) {
    ========================================================================== */
 const GALLERY_ITEMS = [
   {
-    title: "Musabaqah Tilawatil Qur'an (MTQ) Ke-III Tingkat Desa Majelis Hidayah",
-    category: "Keagamaan & MTQ",
-    location: "📍 Arena Utama MTQ Desa Majelis Hidayah",
-    src: "galeri-mtq.jpg"
+    title: 'Musyawarah Rencana Kerja Pemerintah Desa (Musrenbangdes)',
+    category: 'Musyawarah Desa',
+    location: '📍 Balai Pertemuan Desa Majelis Hidayah',
+    src: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1400&q=85'
   },
   {
-    title: "Musyawarah & Rembuk Warga Desa Bersama Kepala Desa dan BPD",
-    category: "Musyawarah Desa",
-    location: "📍 Balai Pertemuan Desa Majelis Hidayah",
-    src: "galeri-musyawarah.jpg"
+    title: 'Penyaluran Bantuan Langsung Tunai (BLT Dana Desa)',
+    category: 'Bantuan Sosial',
+    location: '📍 Aula Kantor Desa Majelis Hidayah',
+    src: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1400&q=85'
   },
   {
-    title: "Rapat Koordinasi & Pembahasan Program Kerja Pemerintahan Desa",
-    category: "Pemerintahan Desa",
-    location: "📍 Aula Kantor Desa Majelis Hidayah",
-    src: "galeri-rapat.jpg"
+    title: 'Gotong Royong Perbaikan Titian Jalan Beton Pesisir',
+    category: 'Infrastruktur Dusun',
+    location: '📍 Titian Penghubung RT Dusun I & Dusun III',
+    src: 'https://images.unsplash.com/photo-1541888946425-d0fbb1861593?auto=format&fit=crop&w=1400&q=85'
+  },
+  {
+    title: 'Pelayanan Administrasi Kependudukan & Catatan Sipil',
+    category: 'Pelayanan Terpadu',
+    location: '📍 Kantor Desa Majelis Hidayah',
+    src: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1400&q=85'
+  },
+  {
+    title: 'Peringatan Hari Besar Islam & Pengajian Akbar',
+    category: 'Keagamaan & Majelis',
+    location: '📍 Masjid Jami Al-Hidayah, Dusun II',
+    src: 'https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=1400&q=85'
+  },
+  {
+    title: 'Pemeriksaan Posyandu Balita & Posbindu Lansia',
+    category: 'Kesehatan Warga',
+    location: '📍 Poskesdes Desa Majelis Hidayah',
+    src: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1400&q=85'
   }
 ];
 
