@@ -332,7 +332,7 @@ const PERANGKAT_DATA = [
     category: 'seksi',
     nip: 'SK Kades No. 08/MH/2021',
     period: '2021 - Sekarang',
-    avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80',
+    avatar: 'maratus.jpg',
     description: 'Menangani urusan ketertiban umum, batas wilayah, registrasi kependudukan, pertanahan pesisir, dan kerja sama antar wilayah.',
     tugas: [
       'Verifikasi permohonan surat keterangan domisili, sporadik tanah, dan pengantar SKCK.',
