@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Resmi Desa Majelis Hidayah | Kec. Kuala Jambi, Kab. Tanjung Jabung Timur</title>
+  <meta name="description" content="Portal informasi resmi, profil, transparansi anggaran, dan layanan administrasi persuratan mandiri Desa Majelis Hidayah, Kecamatan Kuala Jambi, Kabupaten Tanjung Jabung Timur, Jambi.">
+  <meta name="keywords" content="Desa Majelis Hidayah, Kuala Jambi, Tanjung Jabung Timur, Jambi, Desa Pesisir, Layanan Surat Desa, Kantor Desa Majelis Hidayah">
+  <meta name="author" content="Pemerintah Desa Majelis Hidayah">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'gov-blue': '#0B2545',
+            'gov-blue-light': '#134074',
+            'gov-blue-subtle': '#EEF4F8',
+            'gov-emerald': '#059669',
+            'gov-emerald-light': '#10B981',
+            'gov-emerald-soft': '#ECFDF5',
+            'gov-gold': '#D97706',
+            'gov-gold-light': '#F59E0B'
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS for Accessiblity & Animations -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>">
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-200 selection:text-gov-blue">
+
+  <!-- ==========================================================================
+       1. Top Utility Bar (Aksesibilitas & Status Pemerintahan)
+       ========================================================================== -->
+  <header class="border-b border-slate-200 bg-white">
+    <div class="bg-gov-blue text-white text-xs py-2 px-4 sm:px-8">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+        <div class="flex items-center gap-3">
+          <span class="inline-flex items-center gap-1.5 font-semibold tracking-wide text-emerald-300">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            PORTAL RESMI PEMERINTAHAN DESA
+          </span>
+          <span class="hidden sm:inline text-slate-400">|</span>
+          <span class="hidden sm:inline text-slate-300">Kec. Kuala Jambi, Kab. Tanjung Jabung Timur, Prov. Jambi</span>
+        </div>
+        
+        <div class="flex items-center gap-4">
+          <!-- Realtime Date & Time -->
+          <div id="live-clock" class="font-mono text-slate-300 text-[11px]">
+            Memuat Waktu Indonesia Barat...
+          </div>
+
+          <!-- Social Media Icons in Topbar -->
+          <div class="hidden sm:flex items-center gap-2.5 border-l border-blue-900/60 pl-3">
+            <a href="https://www.facebook.com/desamajelishidayah?__tn__=%2Cd" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white transition-colors" title="Facebook Resmi Desa">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://instagram.com/majelishidayahtjt" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-pink-300 transition-colors" title="Instagram Resmi Desa">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+          
+          <!-- Accessibility Toolbar -->
+          <div class="flex items-center gap-1.5 bg-gov-blue-light/70 px-2 py-0.5 rounded border border-blue-900/40">
+            <span class="text-[10px] text-slate-300 mr-1">Teks:</span>
+            <button id="font-normal" aria-label="Ukuran font normal" class="px-1.5 py-0.5 hover:bg-white/20 rounded font-bold text-xs" title="Font Normal">A</button>
+            <button id="font-lg" aria-label="Perbesar font 12%" class="px-1.5 py-0.5 hover:bg-white/20 rounded font-bold text-xs" title="Font Sedang">A+</button>
+            <button id="font-xl" aria-label="Perbesar font 25%" class="px-1.5 py-0.5 hover:bg-white/20 rounded font-bold text-sm" title="Font Besar">A++</button>
+            <span class="text-slate-500">|</span>
+            <button id="toggle-contrast" aria-label="Beralih Mode Kontras Tinggi" class="px-1.5 py-0.5 hover:bg-white/20 rounded text-xs flex items-center gap-1" title="Kontras Tinggi (Akselerasi Penglihatan)">
+              <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12z"/></svg>
+              <span>Kontras</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav class="max-w-7xl mx-auto px-4 sm:px-8 py-3.5 flex items-center justify-between" aria-label="Navigasi Utama">
+      <a href="#hero" class="flex items-center gap-3.5 group">
+        <!-- Logo Lambang Daerah / Desa -->
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-gov-blue to-emerald-700 flex items-center justify-center text-white shadow-md shadow-blue-950/10 border-2 border-emerald-400/30 group-hover:scale-105 transition-transform duration-300">
+          <svg class="w-7 h-7 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+        </div>
+        <div>
+          <span class="block text-xs font-bold uppercase tracking-wider text-emerald-700">Pemerintah Desa</span>
+          <h1 class="text-xl sm:text-2xl font-black text-gov-blue tracking-tight leading-none">MAJELIS HIDAYAH</h1>
+          <span class="block text-[11px] text-slate-500 font-medium">Kuala Jambi, Tanjung Jabung Timur</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <div class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
+        <a href="#hero" class="hover:text-gov-emerald transition-colors py-1">Beranda</a>
+        <a href="#profil" class="hover:text-gov-emerald transition-colors py-1">Profil & Visi Misi</a>
+        <a href="#struktur" class="hover:text-gov-emerald transition-colors py-1">Perangkat Desa</a>
+        <a href="#layanan" class="hover:text-gov-emerald transition-colors py-1">Layanan Publik</a>
+        <a href="#berita" class="hover:text-gov-emerald transition-colors py-1">Berita & Agenda</a>
+        <a href="#potensi" class="hover:text-gov-emerald transition-colors py-1">Potensi Pesisir</a>
+        <a href="#kontak" class="hover:text-gov-emerald transition-colors py-1">Kontak</a>
+      </div>
+
+      <!-- Action Button & Mobile Hamburger -->
+      <div class="flex items-center gap-3">
+        <a href="#layanan" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-gov-emerald to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all duration-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          <span>Layanan Surat Mandiri</span>
+        </a>
+
+        <button id="mobile-menu-btn" aria-label="Buka menu navigasi" aria-expanded="false" class="lg:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 border border-slate-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white px-6 py-4 space-y-3 shadow-lg">
+      <a href="#hero" class="mobile-nav-link block py-2 text-slate-800 font-semibold border-b border-slate-100">Beranda</a>
+      <a href="#profil" class="mobile-nav-link block py-2 text-slate-800 font-semibold border-b border-slate-100">Profil & Visi Misi</a>
+      <a href="#struktur" class="mobile-nav-link block py-2 text-slate-800 font-semibold border-b border-slate-100">Perangkat Desa</a>
+      <a href="#layanan" class="mobile-nav-link block py-2 text-slate-800 font-semibold border-b border-slate-100">Layanan Publik & Administrasi</a>
+      <a href="#berita" class="mobile-nav-link block py-2 text-slate-800 font-semibold border-b border-slate-100">Berita & Pengumuman</a>
+      <a href="#potensi" class="mobile-nav-link block py-2 text-slate-800 font-semibold border-b border-slate-100">Potensi Maritim & Pesisir</a>
+      <a href="#kontak" class="mobile-nav-link block py-2 text-slate-800 font-semibold">Kontak & Lokasi Balai Desa</a>
+      <div class="pt-2">
+        <a href="#layanan" class="mobile-nav-link w-full inline-flex items-center justify-center gap-2 py-3 bg-gov-emerald text-white rounded-xl font-bold text-sm shadow">
+          <span>Buat Pengajuan Surat Online</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       2. Hero Section (Landmark Visual, Sambutan Kades, & Statistik Cepat)
+       ========================================================================== -->
+  <section id="hero" class="relative coastal-pattern text-white overflow-hidden py-16 sm:py-24">
+    <!-- Scenic Overlay Background Layer (Muara Pesisir & Perahu Kuala Jambi) -->
+    <div class="absolute inset-0 z-0 opacity-25 mix-blend-overlay">
+      <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=2000&q=80" alt="Pemandangan Pesisir dan Perahu Nelayan Kuala Jambi" class="w-full h-full object-cover">
+    </div>
+
+    <!-- Glowing Accent Circles -->
+    <div class="absolute -top-24 -left-24 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Text Hero Content -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-emerald-900/60 border border-emerald-500/40 text-emerald-300 text-xs font-semibold backdrop-blur-md">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span id="hero-greeting">Selamat Datang di Portal Resmi</span>
+          </div>
+
+          <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight sm:leading-none text-white drop-shadow-md">
+            Official Website of <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-teal-200 to-amber-200">
+              Desa Majelis Hidayah
+            </span>
+          </h2>
+
+          <p class="text-slate-200 text-base sm:text-lg leading-relaxed max-w-2xl font-light">
+            Mewujudkan tata kelola desa pesisir yang transparan, akuntabel, dan berdaya saing. Terletak di perairan muara Kecamatan Kuala Jambi, Kabupaten Tanjung Jabung Timur, Provinsi Jambi — menjunjung tinggi integritas pelayanan warga dan kelestarian bahari.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a href="#layanan" class="px-6 py-3.5 rounded-xl bg-gov-emerald hover:bg-emerald-600 text-white font-bold text-sm uppercase tracking-wider shadow-lg hover:shadow-emerald-500/30 transition-all duration-300 flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+              <span>Ajukan Surat Mandiri</span>
+            </a>
+            <a href="#lacak" class="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm backdrop-blur-md border border-white/20 transition-all duration-300 flex items-center gap-2">
+              <svg class="w-5 h-5 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+              <span>Lacak Status Surat</span>
+            </a>
+            <a href="#profil" class="px-5 py-3.5 rounded-xl text-slate-300 hover:text-white font-medium text-sm flex items-center gap-1.5 transition-colors">
+              <span>Profil Desa</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Landmark Card / Sambutan Kepala Desa -->
+        <div class="lg:col-span-5">
+          <div class="glass-panel-dark p-6 sm:p-7 rounded-3xl border border-white/15 shadow-2xl relative overflow-hidden group">
+            <div class="flex items-center gap-4 mb-5 border-b border-white/10 pb-4">
+              <div class="w-14 h-14 rounded-2xl overflow-hidden border-2 border-emerald-400 shadow-md flex-shrink-0">
+                <img src="kades.jpg" alt="Kepala Desa Mulyadi" class="w-full h-full object-cover object-top">
+              </div>
+              <div>
+                <span class="text-xs uppercase font-bold tracking-wider text-emerald-400 block">Sambutan Kepala Desa</span>
+                <h3 class="text-lg font-bold text-white">Mulyadi</h3>
+                <p class="text-xs text-slate-300 font-medium">Kepala Desa Majelis Hidayah</p>
+              </div>
+            </div>
+
+            <p class="text-slate-200 text-sm leading-relaxed italic mb-5">
+              "Selamat datang di portal informasi resmi Desa Majelis Hidayah. Website ini hadir sebagai wujud nyata keterbukaan informasi publik dan digitalisasi pelayanan administrasi bagi seluruh masyarakat nelayan, petani, dan perantau kami."
+            </p>
+
+            <div class="grid grid-cols-2 gap-3 pt-2 text-xs">
+              <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+                <span class="text-slate-400 block text-[11px]">Kecamatan</span>
+                <span class="font-bold text-white text-sm">Kuala Jambi</span>
+              </div>
+              <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+                <span class="text-slate-400 block text-[11px]">Kode Pos Resmi</span>
+                <span class="font-bold text-amber-300 text-sm font-mono">36760</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Statistics Floating Bar -->
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-white/10 backdrop-blur-md border border-white/15 p-5 rounded-2xl text-center hover:bg-white/15 transition-all">
+          <div class="text-2xl sm:text-3xl font-black text-amber-300 font-mono">2.245</div>
+          <p class="text-xs font-semibold text-slate-200 uppercase tracking-wider mt-1">Jiwa Penduduk</p>
+          <span class="text-[11px] text-slate-400">Total Warga Terdata</span>
+        </div>
+        <div class="bg-white/10 backdrop-blur-md border border-white/15 p-5 rounded-2xl text-center hover:bg-white/15 transition-all">
+          <div class="text-2xl sm:text-3xl font-black text-emerald-300 font-mono">3 Dusun</div>
+          <p class="text-xs font-semibold text-slate-200 uppercase tracking-wider mt-1">Dusun I, II & III</p>
+          <span class="text-[11px] text-slate-400">Wilayah Pesisir</span>
+        </div>
+        <div class="bg-white/10 backdrop-blur-md border border-white/15 p-5 rounded-2xl text-center hover:bg-white/15 transition-all">
+          <div class="text-2xl sm:text-3xl font-black text-teal-300 font-mono">100%</div>
+          <p class="text-xs font-semibold text-slate-200 uppercase tracking-wider mt-1">Layanan Bebas Biaya</p>
+          <span class="text-[11px] text-slate-400">Transparan & Bebas Pungli</span>
+        </div>
+        <div class="bg-white/10 backdrop-blur-md border border-white/15 p-5 rounded-2xl text-center hover:bg-white/15 transition-all">
+          <div class="text-2xl sm:text-3xl font-black text-blue-300 font-mono">10,30 km²</div>
+          <p class="text-xs font-semibold text-slate-200 uppercase tracking-wider mt-1">Luas Wilayah</p>
+          <span class="text-[11px] text-slate-400">Potensi Maritim & Perkebunan</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wave Transition to Content -->
+    <div class="wave-divider mt-12 text-slate-50">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none" fill="currentColor">
+        <path d="M0,0 C150,90 350,-40 500,45 C650,130 900,10 1200,50 L1200,120 L0,120 Z"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       3. Ticker Pengumuman Kilat (Breaking Alert)
+       ========================================================================== -->
+  <div class="bg-emerald-50 border-y border-emerald-200 py-3 px-4">
+    <div class="max-w-7xl mx-auto flex items-center gap-3">
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider flex-shrink-0">
+        <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
+        PENGUMUMAN
+      </span>
+      <div class="overflow-hidden whitespace-nowrap text-xs sm:text-sm text-slate-700 font-medium">
+        Jadwal Pelayanan Terpadu Perekaman KTP-el & Akta Kelahiran Jemput Bola Dukcapil di Balai Desa Majelis Hidayah (Dusun 2) pada 09 - 10 November 2026. Bawa fotokopi KK dan berkas pendukung.
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       4. Profile & Vision Section (Profil, Sejarah, & Visi Misi)
+       ========================================================================== -->
+  <section id="profil" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs font-bold tracking-widest uppercase text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">
+          Identitas & Karakteristik Wilayah
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gov-blue mt-3 tracking-tight">
+          Profil & Visi Misi Desa Majelis Hidayah
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
+          Kecamatan Kuala Jambi, Kabupaten Tanjung Jabung Timur — Memadukan potensi maritim pesisir timur Jambi dengan nilai religius dan musyawarah masyarakat.
+        </p>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10" role="tablist">
+        <button data-tab="tab-sejarah" role="tab" aria-selected="true" class="profile-tab-btn px-6 py-3 rounded-xl font-bold text-sm bg-gov-blue text-white shadow-md transition-all">
+          📜 Sejarah Desa
+        </button>
+        <button data-tab="tab-geografis" role="tab" aria-selected="false" class="profile-tab-btn px-6 py-3 rounded-xl font-bold text-sm bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all">
+          🗺️ Geografis & Kawasan Pesisir
+        </button>
+        <button data-tab="tab-visi" role="tab" aria-selected="false" class="profile-tab-btn px-6 py-3 rounded-xl font-bold text-sm bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all">
+          🎯 Visi & Misi Resmi
+        </button>
+      </div>
+
+      <!-- Tab Content Panes -->
+      <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-slate-200 transition-all">
+        <!-- Pane 1: Sejarah Desa -->
+        <div id="tab-sejarah" class="profile-tab-pane block space-y-6">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7 space-y-4">
+              <span class="text-xs font-bold uppercase text-emerald-700 tracking-wider">Akar Budaya & Tradisi</span>
+              <h3 class="text-2xl font-bold text-slate-900 leading-snug">
+                Asal-Usul Nama 'Majelis Hidayah': Perpaduan Musyawarah dan Keberkahan Religi
+              </h3>
+              <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                Nama <strong>Desa Majelis Hidayah</strong> diambil dari dua kata bermakna luhur: <em>Majelis</em> yang mencerminkan tradisi masyarakat Melayu pesisir yang selalu mengedepankan musyawarah mufakat dalam mengambil setiap keputusan warga, serta <em>Hidayah</em> yang merujuk pada petunjuk ilahi dan nilai religius yang mengakar kuat dalam kehidupan sehari-hari.
+              </p>
+              <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                Sejak awal mula perkampungan nelayan di muara perairan Kuala Jambi, masyarakat hidup rukun berdampingan dengan alam pesisir. Perkembangan desa kian pesat dengan berdirinya sarana keagamaan bersejarah seperti <strong>Masjid Jami Al-Hidayah</strong> di Dusun II dan sarana pendidikan dasar <strong>SD Negeri 176/X Majelis Hidayah</strong> di Jalan Siswa yang menjadi tonggak peradaban pendidikan generasi muda desa.
+              </p>
+              <div class="p-4 bg-emerald-50 rounded-2xl border border-emerald-200 text-xs text-emerald-900">
+                <strong>Prinsip Kemasyarakatan:</strong> Menjunjung semboyan Kabupaten Tanjung Jabung Timur <em>"Sepucuk Nipah Serumpun Nibung"</em> yang melambangkan kebersamaan, ketahanan, dan persatuan masyarakat bahari.
+              </div>
+            </div>
+            <div class="lg:col-span-5">
+              <div class="rounded-2xl overflow-hidden shadow-lg border border-slate-200">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" alt="Pesisir Kuala Jambi" class="w-full h-80 object-cover">
+                <div class="p-4 bg-slate-900 text-white text-xs">
+                  <span class="font-bold text-emerald-300 block">Dermaga Tradisional & Estuari Kuala Jambi</span>
+                  <span class="text-slate-400">Jantung kehidupan nelayan Desa Majelis Hidayah</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pane 2: Geografis & Wilayah Pesisir -->
+        <div id="tab-geografis" class="profile-tab-pane hidden space-y-6">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-6 space-y-4">
+              <span class="text-xs font-bold uppercase text-emerald-700 tracking-wider">Bentang Alam Kuala Jambi</span>
+              <h3 class="text-2xl font-bold text-slate-900">Karakteristik Wilayah Estuari & Pesisir</h3>
+              <p class="text-slate-600 leading-relaxed text-sm">
+                Desa Majelis Hidayah terletak di garis pesisir timur Provinsi Jambi dalam lingkup Kecamatan Kuala Jambi, Kabupaten Tanjung Jabung Timur. Kawasan ini memiliki topografi dataran rendah berawa dan muara sungai yang sangat dipengaruhi oleh pasang surut air laut Selat Berhala.
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                  <span class="text-xs text-slate-500 font-semibold uppercase">Sebelah Utara</span>
+                  <h4 class="font-bold text-slate-900 text-sm mt-0.5">Desa Teluk Majelis</h4>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                  <span class="text-xs text-slate-500 font-semibold uppercase">Sebelah Selatan</span>
+                  <h4 class="font-bold text-slate-900 text-sm mt-0.5">Kuala Lagan & Sungai Pesisir</h4>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                  <span class="text-xs text-slate-500 font-semibold uppercase">Sebelah Timur</span>
+                  <h4 class="font-bold text-slate-900 text-sm mt-0.5">Selat Berhala / Laut Lepas</h4>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                  <span class="text-xs text-slate-500 font-semibold uppercase">Sebelah Barat</span>
+                  <h4 class="font-bold text-slate-900 text-sm mt-0.5">Desa Manunggal Makmur</h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-6 space-y-4">
+              <div class="bg-blue-50/70 p-6 rounded-2xl border border-blue-200 space-y-3">
+                <h4 class="font-bold text-gov-blue text-base flex items-center gap-2">
+                  <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
+                  <span>Informasi Geospasial & Kewilayahan</span>
+                </h4>
+                <ul class="text-xs text-slate-700 space-y-2">
+                  <li class="flex justify-between py-1 border-b border-blue-100">
+                    <span class="text-slate-500">Koordinat Kantor Desa:</span>
+                    <span class="font-mono font-bold">1°01'44"S 103°52'10"E</span>
+                  </li>
+                  <li class="flex justify-between py-1 border-b border-blue-100">
+                    <span class="text-slate-500">Ketinggian dari Permukaan Laut:</span>
+                    <span class="font-bold">1 - 4 mdpl (Pasang Surut Pesisir)</span>
+                  </li>
+                  <li class="flex justify-between py-1 border-b border-blue-100">
+                    <span class="text-slate-500">Jarak ke Kantor Camat Kuala Jambi:</span>
+                    <span class="font-bold">± 4,5 km (Via Jalur Titian/Darat)</span>
+                  </li>
+                  <li class="flex justify-between py-1 border-b border-blue-100">
+                    <span class="text-slate-500">Jarak ke Ibukota Kab. Muara Sabak:</span>
+                    <span class="font-bold">± 28 km</span>
+                  </li>
+                  <li class="flex justify-between py-1">
+                    <span class="text-slate-500">Ekosistem Dominan:</span>
+                    <span class="font-bold text-emerald-700">Mangrove, Nipah & Lahan Pasang Surut</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pane 3: Visi & Misi Resmi -->
+        <div id="tab-visi" class="profile-tab-pane hidden space-y-8">
+          <!-- Visi Card -->
+          <div class="bg-gradient-to-r from-gov-blue to-gov-blue-light text-white p-8 rounded-2xl shadow-md relative overflow-hidden">
+            <span class="text-xs uppercase font-extrabold tracking-widest text-emerald-300 block mb-2">Visi Pemerintah Desa 2026 - 2031</span>
+            <p class="text-xl sm:text-2xl font-serif italic leading-relaxed text-amber-100">
+              "Terwujudnya Desa Majelis Hidayah yang Mandiri, Sejahtera, Berkarakter Agamis, serta Berdaya Saing Melalui Penguatan Ekonomi Kemaritiman dan Tata Kelola Pemerintahan yang Bersih dan Terbuka."
+            </p>
+          </div>
+
+          <!-- Misi List -->
+          <div>
+            <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+              <span class="w-2.5 h-6 bg-emerald-600 rounded"></span>
+              <span>5 Poin Misi Strategis Pembangunan Desa</span>
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white font-bold flex items-center justify-center text-sm mb-3">1</div>
+                <h4 class="font-bold text-slate-800 text-sm mb-1.5">Pelayanan Prima Bebas Pungli</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  Menyelenggarakan tata kelola administrasi desa yang cepat, transparan, berbasis teknologi digital, dan 100% bebas biaya bagi warga.
+                </p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white font-bold flex items-center justify-center text-sm mb-3">2</div>
+                <h4 class="font-bold text-slate-800 text-sm mb-1.5">Infrastruktur Titian & Sanitasi</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  Meningkatkan kualitas jalan titian beton antar-dusun, tanggul penahan abrasi pantai, serta fasilitas penyediaan air bersih layak konsumsi.
+                </p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white font-bold flex items-center justify-center text-sm mb-3">3</div>
+                <h4 class="font-bold text-slate-800 text-sm mb-1.5">Pemberdayaan Nelayan & Petani</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  Mendukung kelompok nelayan tangkap dengan sarana keselamatan melaut serta hilirisasi produk unggulan kelapa dalam dan pinang betara.
+                </p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white font-bold flex items-center justify-center text-sm mb-3">4</div>
+                <h4 class="font-bold text-slate-800 text-sm mb-1.5">Pendidikan & Penguatan Keagamaan</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  Menumbuhkembangkan kegiatan majelis taklim, pembinaan remaja masjid, serta dukungan beasiswa bagi anak-anak pesisir berprestasi.
+                </p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white font-bold flex items-center justify-center text-sm mb-3">5</div>
+                <h4 class="font-bold text-slate-800 text-sm mb-1.5">Konservasi Lingkungan Mangrove</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  Melestarikan sabuk hijau mangrove pesisir muara guna menahan abrasi dan habitat alami kepiting bakau serta udang khas Tanjung Jabung Timur.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. Government Structure (Perangkat Desa)
+       ========================================================================== -->
+  <section id="struktur" class="py-20 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <span class="text-xs font-bold tracking-widest uppercase text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">
+            Aparatur Pemerintahan
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-gov-blue mt-3 tracking-tight">
+            Struktur Organisasi & Perangkat Desa
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-2">
+            Aparatur Pemerintah Desa Majelis Hidayah yang berdedikasi melayani kepentingan warga setiap hari kerja.
+          </p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap gap-2 text-xs font-semibold">
+          <button data-filter="all" class="filter-perangkat-btn px-4 py-2 rounded-xl bg-gov-blue text-white shadow-sm transition-all">
+            Semua
+          </button>
+          <button data-filter="pimpinan" class="filter-perangkat-btn px-4 py-2 rounded-xl bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition-all">
+            Pimpinan
+          </button>
+          <button data-filter="sekretariat" class="filter-perangkat-btn px-4 py-2 rounded-xl bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition-all">
+            Sekretariat & Urusan
+          </button>
+          <button data-filter="seksi" class="filter-perangkat-btn px-4 py-2 rounded-xl bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition-all">
+            Seksi Teknis
+          </button>
+          <button data-filter="kadus" class="filter-perangkat-btn px-4 py-2 rounded-xl bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition-all">
+            Kepala Dusun
+          </button>
+        </div>
+      </div>
+
+      <!-- Grid Cards Perangkat Desa (Rendered dynamically by app.js) -->
+      <div id="perangkat-cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. Public Services & Letter Request Form (Layanan Mandiri Warga)
+       ========================================================================== -->
+  <section id="layanan" class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs font-bold tracking-widest uppercase text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">
+          Pelayanan Publik Digital
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gov-blue mt-3 tracking-tight">
+          Layanan Administrasi Mandiri Warga
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          Permohonan surat pengantar dan keterangan kependudukan secara online tanpa harus antre lama di kantor desa. Resmi, mudah, dan bebas biaya.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Left Column: Form Pengajuan Surat -->
+        <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
+                ✍️
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-900">Formulir Permohonan Surat Online</h3>
+                <p class="text-xs text-slate-500">Isi data identitas diri sesuai KTP dan Kartu Keluarga (KK)</p>
+              </div>
+            </div>
+            <span class="text-[11px] bg-blue-50 text-blue-700 font-semibold px-2.5 py-1 rounded-full border border-blue-200">
+              Proses 1 Hari Kerja
+            </span>
+          </div>
+
+          <form id="letter-request-form" class="space-y-4">
+            <!-- Pilihan Jenis Surat -->
+            <div>
+              <label for="letter-type" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                Pilih Jenis Surat Yang Diajukan <span class="text-red-500">*</span>
+              </label>
+              <select id="letter-type" required class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
+                <option value="Surat Keterangan Domisili">Surat Keterangan Domisili</option>
+                <option value="Surat Pengantar SKCK">Surat Pengantar SKCK (Kepolisian)</option>
+                <option value="Surat Keterangan Usaha (SKU)">Surat Keterangan Usaha (SKU - Nelayan / UMKM / Kelapa)</option>
+                <option value="Surat Keterangan Tidak Mampu (SKTM)">Surat Keterangan Tidak Mampu (SKTM / Beasiswa)</option>
+                <option value="Surat Keterangan Kelahiran / Kematian">Surat Pengantar Keterangan Kelahiran / Kematian</option>
+                <option value="Surat Keterangan Penghasilan Orang Tua">Surat Keterangan Penghasilan / Usaha Keluarga</option>
+              </select>
+            </div>
+
+            <!-- Dynamic Additional Fields Container -->
+            <div id="dynamic-letter-fields"></div>
+
+            <!-- Nama & NIK Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="form-nama" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                  Nama Lengkap Pemohon <span class="text-red-500">*</span>
+                </label>
+                <input type="text" id="form-nama" required placeholder="Contoh: Muhammad Yusuf" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
+              </div>
+              <div>
+                <label for="form-nik" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                  Nomor Induk Kependudukan (NIK 16 Digit) <span class="text-red-500">*</span>
+                </label>
+                <input type="text" id="form-nik" required maxlength="16" pattern="\d{16}" placeholder="Contoh: 1507021208940001" class="w-full px-4 py-2.5 text-sm font-mono rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
+              </div>
+            </div>
+
+            <!-- WhatsApp & Dusun Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="form-phone" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                  Nomor WhatsApp Aktif <span class="text-red-500">*</span>
+                </label>
+                <input type="tel" id="form-phone" required placeholder="Contoh: 081274001234" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
+                <span class="text-[11px] text-slate-400 mt-0.5 block">Notifikasi kesiapan surat akan dikirim ke nomor ini</span>
+              </div>
+              <div>
+                <label for="form-dusun" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                  Dusun Domisili <span class="text-red-500">*</span>
+                </label>
+                <select id="form-dusun" required class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
+                  <option value="DUSUN I">DUSUN I</option>
+                  <option value="DUSUN II">DUSUN II</option>
+                  <option value="DUSUN III">DUSUN III</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Keperluan Surat -->
+            <div>
+              <label for="form-keperluan" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                Keterangan / Keperluan Surat <span class="text-red-500">*</span>
+              </label>
+              <textarea id="form-keperluan" required rows="3" placeholder="Tuliskan tujuan keperluan surat secara jelas..." class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"></textarea>
+            </div>
+
+            <!-- Persyaratan Upload Simulasi -->
+            <div class="p-4 bg-slate-50 border border-dashed border-slate-300 rounded-xl">
+              <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Lampiran Foto KTP / Kartu Keluarga (Opsional)</label>
+              <input type="file" accept="image/*,.pdf" class="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100">
+              <span class="text-[11px] text-slate-400 mt-1 block">Format: JPG, PNG, atau PDF (Maksimal 3 MB)</span>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-gov-emerald hover:bg-emerald-700 text-white font-bold text-sm uppercase tracking-wider shadow-lg hover:shadow-emerald-600/30 transition-all flex items-center justify-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              <span>Kirim Permohonan & Dapatkan Nomor Resi</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Right Column: Letter Tracking & Transparency Widget -->
+        <div class="lg:col-span-5 space-y-6">
+          <!-- Tracking Widget (Lacak Surat) -->
+          <div id="lacak" class="bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-slate-200">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold">
+                🔍
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-slate-900">Lacak Status Permohonan Surat</h3>
+                <p class="text-xs text-slate-500">Cek proses pengerjaan berkas secara transparan</p>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <div class="flex gap-2">
+                <input type="text" id="input-track-ticket" placeholder="Ketik Kode Resi (cth: MH-2026-0101) / NIK" class="flex-1 px-4 py-2.5 text-sm uppercase rounded-xl border border-slate-300 focus:ring-2 focus:ring-gov-blue">
+                <button id="btn-track-letter" class="px-5 py-2.5 bg-gov-blue hover:bg-gov-blue-light text-white text-xs font-bold uppercase rounded-xl transition-colors">
+                  Cari
+                </button>
+              </div>
+              
+              <div class="text-[11px] text-slate-500 flex items-center gap-1">
+                <span>💡 Kode Uji Coba Tersedia:</span>
+                <button onclick="document.getElementById('input-track-ticket').value='MH-2026-0101'; document.getElementById('btn-track-letter').click();" class="text-gov-emerald font-bold underline">
+                  MH-2026-0101
+                </button>
+                <span>atau</span>
+                <button onclick="document.getElementById('input-track-ticket').value='MH-2026-0102'; document.getElementById('btn-track-letter').click();" class="text-gov-emerald font-bold underline">
+                  MH-2026-0102
+                </button>
+              </div>
+            </div>
+
+            <!-- Dynamic Result Placeholder -->
+            <div id="track-result-container" class="mt-5">
+              <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200 text-center text-xs text-slate-500">
+                Masukkan nomor resi yang Anda peroleh saat mengajukan surat untuk melihat timeline progres dokumen.
+              </div>
+            </div>
+          </div>
+
+          <!-- PAGU ANGGARAN PENDAPATAN Card -->
+          <div class="bg-gradient-to-br from-gov-blue to-slate-900 text-white rounded-3xl p-6 sm:p-7 shadow-lg border border-slate-800">
+            <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+              <div>
+                <span class="text-xs text-emerald-400 font-bold uppercase tracking-wider">Transparansi Keuangan Desa</span>
+                <h4 class="text-lg font-bold text-white">PAGU ANGGARAN PENDAPATAN</h4>
+              </div>
+              <span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-300 text-xs font-semibold rounded-lg border border-emerald-500/30">
+                T.A. 2026
+              </span>
+            </div>
+
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              Rincian pos sumber penerimaan pendapatan Desa Majelis Hidayah untuk membiayai penyelenggaraan pemerintahan, pembangunan fasilitas pesisir, dan pembinaan warga.
+            </p>
+
+            <div class="space-y-3.5 text-xs">
+              <div>
+                <div class="flex justify-between font-semibold mb-1">
+                  <span>Dana Desa (DD - APBN Pusat)</span>
+                  <span class="text-emerald-400 font-mono">Rp 715.420.000,- (62%)</span>
+                </div>
+                <div class="w-full bg-white/10 rounded-full h-2">
+                  <div class="bg-emerald-500 h-2 rounded-full" style="width: 62%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between font-semibold mb-1">
+                  <span>Alokasi Dana Desa (ADD - APBD Tanjabtim)</span>
+                  <span class="text-teal-300 font-mono">Rp 368.500.000,- (32%)</span>
+                </div>
+                <div class="w-full bg-white/10 rounded-full h-2">
+                  <div class="bg-teal-400 h-2 rounded-full" style="width: 32%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between font-semibold mb-1">
+                  <span>Bagi Hasil Pajak & Retribusi Daerah (BHPRD)</span>
+                  <span class="text-blue-300 font-mono">Rp 45.280.000,- (4%)</span>
+                </div>
+                <div class="w-full bg-white/10 rounded-full h-2">
+                  <div class="bg-blue-400 h-2 rounded-full" style="width: 4%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between font-semibold mb-1">
+                  <span>Pendapatan Asli Desa (PADes) & Lain-lain Sah</span>
+                  <span class="text-amber-300 font-mono">Rp 22.800.000,- (2%)</span>
+                </div>
+                <div class="w-full bg-white/10 rounded-full h-2">
+                  <div class="bg-amber-400 h-2 rounded-full" style="width: 2%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5 pt-3 border-t border-white/10 flex justify-between items-center text-xs">
+              <span class="text-slate-300 font-semibold uppercase">Total Pagu Pendapatan:</span>
+              <span class="font-mono text-emerald-300 font-extrabold text-base">Rp 1.152.000.000,-</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. News & Announcements (Berita & Pengumuman)
+       ========================================================================== -->
+  <section id="berita" class="py-20 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <span class="text-xs font-bold tracking-widest uppercase text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">
+            Kabar & Publikasi
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-gov-blue mt-3 tracking-tight">
+            Berita & Pengumuman Desa
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-2">
+            Informasi terkini mengenai kegiatan aparatur, pembangunan dusun, dan agenda masyarakat.
+          </p>
+        </div>
+
+        <!-- Filter Categories -->
+        <div class="flex flex-wrap gap-2 text-xs font-semibold">
+          <button data-category="all" class="news-filter-btn px-4 py-2 rounded-xl bg-gov-blue text-white shadow-sm transition-all">
+            Semua
+          </button>
+          <button data-category="pengumuman" class="news-filter-btn px-4 py-2 rounded-xl bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition-all">
+            Pengumuman
+          </button>
+          <button data-category="pembangunan" class="news-filter-btn px-4 py-2 rounded-xl bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition-all">
+            Pembangunan
+          </button>
+          <button data-category="bantuan" class="news-filter-btn px-4 py-2 rounded-xl bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition-all">
+            Bantuan Sosial
+          </button>
+          <button data-category="agenda" class="news-filter-btn px-4 py-2 rounded-xl bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition-all">
+            Agenda Kegiatan
+          </button>
+        </div>
+      </div>
+
+      <!-- News Cards Grid (Rendered by app.js) -->
+      <div id="news-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       8. Potential & Coastal Heritage (Potensi Maritim & Pesisir)
+       ========================================================================== -->
+  <section id="potensi" class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs font-bold tracking-widest uppercase text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">
+          Komoditas & Kekayaan Bahari
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gov-blue mt-3 tracking-tight">
+          Potensi Unggulan Desa Majelis Hidayah
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          Perpaduan sumber daya perikanan tangkap laut Kuala Jambi dan perkebunan pesisir yang menopang perekonomian warga desa.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Card 1: Perikanan Tangkap -->
+        <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 flex flex-col justify-between group hover:shadow-xl transition-all">
+          <div>
+            <div class="h-48 rounded-2xl overflow-hidden mb-5">
+              <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80" alt="Nelayan Kuala Jambi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <span class="text-xs font-bold uppercase text-emerald-600 tracking-wider">Sektor Kelautan</span>
+            <h3 class="text-xl font-bold text-slate-900 mt-1 mb-3">Perikanan Tangkap & Olahan Ebi</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Hasil tangkapan utama berupa udang ketak, udang ebi merah, ikan bawal, senangin, serta kepiting bakau segar dari muara perairan Kuala Jambi yang dipasok ke pasar Jambi hingga ekspor.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs text-slate-500">
+            <span>Sentra Pendaratan Ikan</span>
+            <span class="text-emerald-700 font-bold">Dusun I & II</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Kelapa & Pinang -->
+        <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 flex flex-col justify-between group hover:shadow-xl transition-all">
+          <div>
+            <div class="h-48 rounded-2xl overflow-hidden mb-5">
+              <img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=600&q=80" alt="Perkebunan Pinang dan Kelapa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <span class="text-xs font-bold uppercase text-amber-600 tracking-wider">Sektor Perkebunan</span>
+            <h3 class="text-xl font-bold text-slate-900 mt-1 mb-3">Kelapa Dalam & Pinang Betara</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Komoditas unggulan khas Tanjung Jabung Timur yakni Pinang Betara berkualitas tinggi dan kelapa dalam kopra yang dibudidayakan secara turun-temurun pada lahan pasang surut pesisir.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs text-slate-500">
+            <span>Sentra Budidaya Tani</span>
+            <span class="text-amber-700 font-bold">Dusun III & IV</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Wisata Mangrove & Titian Pesisir -->
+        <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 flex flex-col justify-between group hover:shadow-xl transition-all">
+          <div>
+            <div class="h-48 rounded-2xl overflow-hidden mb-5">
+              <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Konservasi Mangrove Pesisir" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <span class="text-xs font-bold uppercase text-teal-600 tracking-wider">Konservasi & Ekowisata</span>
+            <h3 class="text-xl font-bold text-slate-900 mt-1 mb-3">Sabuk Hijau Mangrove & Titian Bahari</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Hutan bakau alami pelindung pesisir dari abrasi laut yang dirawat bersama kelompok masyarakat, menjadi habitat fauna air payau dan rute jalan titian kayu khas perkampungan air.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs text-slate-500">
+            <span>Kelestarian Bahari</span>
+            <span class="text-teal-700 font-bold">Bantaran Muara</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       9. Official Footer (Alamat Resmi, Kontak, & Hak Cipta)
+       ========================================================================== -->
+  <footer id="kontak" class="bg-gov-blue text-slate-300 pt-16 pb-8 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
+        <!-- Brand & Address -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center text-white font-bold shadow">
+              🏛️
+            </div>
+            <div>
+              <h3 class="text-lg font-extrabold text-white leading-tight">PEMERINTAH DESA MAJELIS HIDAYAH</h3>
+              <p class="text-xs text-emerald-400">Kecamatan Kuala Jambi, Kabupaten Tanjung Jabung Timur</p>
+            </div>
+          </div>
+
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-md">
+            Portal komunikasi dan pelayanan resmi masyarakat Desa Majelis Hidayah. Mengabdi dengan sepenuh hati demi kemajuan masyarakat pesisir yang bermartabat, agamis, dan sejahtera.
+          </p>
+
+          <div class="text-xs space-y-2 text-slate-300 pt-2">
+            <div class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
+              <span>Jl. Madrasah RT.07 Dusun II Desa Majelis Hidayah Kecamatan Kuala Jambi, Kab. Tanjung Jabung Timur, Provinsi Jambi</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              <span class="font-mono">Kode Pos: <strong>36760</strong></span>
+            </div>
+          </div>
+
+          <!-- Modern Google Maps Card -->
+          <div class="mt-4 p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold text-white flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                Peta Lokasi Kantor Desa
+              </span>
+              <span class="text-[11px] text-emerald-400 font-mono">Google Maps</span>
+            </div>
+            <p class="text-[11px] text-slate-300 mb-3">Akses rute dan navigasi langsung ke Balai / Kantor Desa Majelis Hidayah:</p>
+            <a href="https://maps.app.goo.gl/ifMdkvfpvv2Tnud37" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs rounded-xl shadow-md transition-all duration-200">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              <span>Buka Petunjuk Arah di Google Maps</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Operating Hours & Contact Details -->
+        <div class="lg:col-span-4 space-y-4">
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider border-b border-slate-800 pb-2">
+            Kontak Pelayanan & Jam Kerja
+          </h4>
+          <ul class="text-xs space-y-2.5">
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span class="text-slate-400">Senin - Kamis:</span>
+              <span class="text-white font-medium">08.00 - 15.00 WIB</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span class="text-slate-400">Jumat:</span>
+              <span class="text-white font-medium">08.00 - 11.30 WIB</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span class="text-slate-400">Sabtu - Minggu:</span>
+              <span class="text-amber-400 font-medium">Tutup (Piket Siaga Bencana)</span>
+            </li>
+            <li class="pt-2">
+              <span class="text-slate-400 block mb-1">Hotline WhatsApp Layanan Warga:</span>
+              <a href="https://wa.me/6285156665733?text=Halo%20Admin%20Pemerintah%20Desa%20Majelis%20Hidayah,%20saya%20ingin%20berkonsultasi%20layanan%20surat%20desa." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-bold text-sm">
+                <span>📱 +62 851-5666-5733</span>
+                <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded">Admin Pelayanan</span>
+              </a>
+            </li>
+            <li>
+              <span class="text-slate-400 block mb-0.5">Surat Elektronik Resmi:</span>
+              <span class="font-mono text-slate-200">majelishidayah@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Quick Government Links -->
+        <div class="lg:col-span-3 space-y-4">
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider border-b border-slate-800 pb-2">
+            Tautan Terkait
+          </h4>
+          <ul class="text-xs space-y-2">
+            <li>
+              <a href="https://tanjabtimkab.go.id" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                <span>Pemerintah Kab. Tanjung Jabung Timur</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://kemendesa.go.id" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                <span>Kementerian Desa PDTT</span>
+              </a>
+            </li>
+            <li>
+              <a href="#profil" class="hover:text-emerald-400 transition-colors">Visi & Misi Desa 2026-2031</a>
+            </li>
+            <li>
+              <a href="#lacak" class="hover:text-emerald-400 transition-colors">Cek Status Tiket Pelayanan</a>
+            </li>
+            <li>
+              <a href="#struktur" class="hover:text-emerald-400 transition-colors">Daftar Aparatur & Kepala Dusun</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Modern Official Social Media Section -->
+      <div class="py-8 border-b border-slate-800/80">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 block mb-1">Kanal Informasi & Komunikasi Publik</span>
+            <h4 class="text-base font-bold text-white">Media Sosial Resmi Pemerintah Desa Majelis Hidayah</h4>
+          </div>
+          <p class="text-xs text-slate-400 max-w-md">Ikuti akun resmi kami untuk mendapatkan update berita, pengumuman gotong royong, dan dokumentasi kemajuan desa.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Facebook Card -->
+          <div class="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/40 backdrop-blur-sm transition-all duration-300 group">
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-600/30">
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </div>
+                <div>
+                  <h5 class="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">Facebook Resmi Desa</h5>
+                  <p class="text-xs text-slate-400">@desamajelishidayah</p>
+                </div>
+              </div>
+              <span class="text-[10px] bg-blue-500/20 text-blue-300 font-semibold px-2.5 py-1 rounded-full border border-blue-500/30">
+                Halaman Resmi
+              </span>
+            </div>
+            <p class="text-[11px] text-slate-300 mb-3.5">Publikasi pengumuman kegiatan warga, liputan pembangunan titian, dan agenda desa pesisir.</p>
+            <a href="https://www.facebook.com/desamajelishidayah?__tn__=%2Cd" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-bold text-xs rounded-xl shadow-md transition-all duration-200">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              <span>Kunjungi Facebook Resmi Desa</span>
+            </a>
+          </div>
+
+          <!-- Instagram Card -->
+          <div class="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-pink-500/40 backdrop-blur-sm transition-all duration-300 group">
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white flex items-center justify-center shadow-md shadow-pink-600/30">
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </div>
+                <div>
+                  <h5 class="text-sm font-bold text-white group-hover:text-pink-400 transition-colors">Instagram Resmi Desa</h5>
+                  <p class="text-xs text-slate-400">@majelishidayah.tjt</p>
+                </div>
+              </div>
+              <span class="text-[10px] bg-pink-500/20 text-pink-300 font-semibold px-2.5 py-1 rounded-full border border-pink-500/30">
+                Akun Resmi
+              </span>
+            </div>
+            <p class="text-[11px] text-slate-300 mb-3.5">Galeri foto dan video potensi bahari, wisata mangrove, dan keindahan Desa Majelis Hidayah.</p>
+            <a href="https://instagram.com/majelishidayah.tjt" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-gradient-to-r from-[#f09433] via-[#dc2743] to-[#bc1888] hover:opacity-95 text-white font-bold text-xs rounded-xl shadow-md transition-all duration-200">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              <span>Buka Profil di Instagram</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Copyright & Compliance -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div>
+          © 2026 Pemerintah Desa Majelis Hidayah, Kecamatan Kuala Jambi. Seluruh hak cipta dilindungi undang-undang.
+        </div>
+        <div class="text-[11px]">
+          <span class="text-emerald-500 font-semibold">Kuala Jambi Bersih & Berkelanjutan</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       10. Interactive Modal Dialogs
+       ========================================================================== -->
+  <!-- A. Perangkat Desa Bio Modal -->
+  <div id="perangkat-modal" class="modal-container fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/70 backdrop-blur-sm p-4 overflow-y-auto" role="dialog" aria-modal="true">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative animate-fadeIn max-h-[90vh] overflow-y-auto">
+      <button class="modal-close-btn absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-sm" aria-label="Tutup jendela profil">
+        ✕
+      </button>
+      <div id="perangkat-modal-content">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- B. Receipt / Bukti Permohonan Surat Modal -->
+  <div id="receipt-modal" class="modal-container fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/70 backdrop-blur-sm p-4 overflow-y-auto" role="dialog" aria-modal="true">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative animate-fadeIn max-h-[90vh] overflow-y-auto">
+      <button class="modal-close-btn absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-sm" aria-label="Tutup bukti pendaftaran">
+        ✕
+      </button>
+      <div id="receipt-modal-content">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- C. News Reader Modal -->
+  <div id="news-modal" class="modal-container fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/70 backdrop-blur-sm p-4 overflow-y-auto" role="dialog" aria-modal="true">
+    <div class="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl relative animate-fadeIn max-h-[90vh] overflow-y-auto">
+      <button class="modal-close-btn absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-sm" aria-label="Tutup artikel">
+        ✕
+      </button>
+      <div id="news-modal-content">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript Application Logic -->
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
