@@ -476,37 +476,41 @@ function initPerangkatFilter() {
 
     filtered.forEach(person => {
       const card = document.createElement('div');
-      card.className = 'bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200 overflow-hidden flex flex-col group';
+      card.className = 'bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200 overflow-hidden flex flex-col group cursor-pointer hover:-translate-y-1';
+      card.setAttribute('onclick', `openPerangkatModal(${person.id})`);
       
       card.innerHTML = `
-        <div class="relative overflow-hidden bg-gradient-to-t from-slate-900 via-slate-800 to-slate-700 h-64">
-          <img src="${person.avatar}" alt="${person.name}" class="w-full h-full object-cover object-top opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-transform duration-500">
-          <div class="absolute inset-0 bg-gradient-to-t from-gov-blue/90 via-gov-blue/20 to-transparent"></div>
-          <span class="absolute top-4 right-4 bg-emerald-600/90 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm border border-emerald-400/40">
-            Aktif Melayani
+        <div class="relative aspect-[3/4] w-full overflow-hidden bg-slate-900">
+          <img src="${person.avatar}" alt="${person.name}" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-85 group-hover:opacity-90 transition-opacity"></div>
+          
+          <!-- Badges -->
+          <span class="absolute top-2.5 right-2.5 bg-emerald-600/90 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full backdrop-blur-sm border border-emerald-400/40">
+            Aktif
           </span>
-          <div class="absolute bottom-4 left-4 right-4">
-            <span class="text-xs uppercase tracking-wider text-emerald-300 font-semibold block mb-1">
-              ${person.period}
+          <span class="absolute top-2.5 left-2.5 bg-black/60 text-slate-200 text-[10px] font-medium px-2 py-0.5 rounded-full backdrop-blur-sm border border-white/10">
+            ${person.period}
+          </span>
+
+          <!-- Overlay Info on Bottom of Portrait Photo -->
+          <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4 text-white">
+            <span class="inline-block text-[11px] font-bold text-emerald-300 uppercase tracking-wide truncate mb-0.5">
+              ${person.title}
             </span>
-            <h4 class="text-white text-xl font-bold leading-tight drop-shadow-sm">${person.name}</h4>
-            <p class="text-slate-200 text-sm font-medium mt-0.5">${person.title}</p>
-          </div>
-        </div>
-        <div class="p-6 flex-1 flex flex-col justify-between bg-white">
-          <div>
-            <div class="flex items-center gap-2 mb-3 text-xs text-slate-500 font-mono">
-              <svg class="w-4 h-4 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-              <span>${person.nip}</span>
-            </div>
-            <p class="text-slate-600 text-sm line-clamp-3 leading-relaxed mb-4">
-              ${person.description}
+            <h4 class="text-sm sm:text-base font-bold text-white group-hover:text-emerald-200 transition-colors line-clamp-1 leading-snug drop-shadow-sm">
+              ${person.name}
+            </h4>
+            <p class="text-[10px] sm:text-[11px] text-slate-300 font-mono mt-1 flex items-center gap-1 opacity-90 truncate">
+              <svg class="w-3 h-3 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+              <span class="truncate">${person.nip}</span>
             </p>
           </div>
-          <button onclick="openPerangkatModal(${person.id})" class="w-full py-2.5 px-4 bg-slate-50 hover:bg-gov-blue hover:text-white text-slate-700 font-medium rounded-xl text-sm border border-slate-200 hover:border-gov-blue transition-all duration-200 flex items-center justify-center gap-2">
-            <span>Rincian Tugas & Wewenang</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-          </button>
+        </div>
+        <div class="py-2.5 px-3 sm:px-4 bg-white flex items-center justify-between text-xs text-slate-600 group-hover:text-gov-blue transition-colors border-t border-slate-100 font-medium">
+          <span class="text-[11px] sm:text-xs font-semibold">Rincian Tugas &amp; Wewenang</span>
+          <div class="w-5 h-5 rounded-full bg-slate-100 group-hover:bg-gov-blue group-hover:text-white flex items-center justify-center transition-colors">
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </div>
         </div>
       `;
       cardsContainer.appendChild(card);
