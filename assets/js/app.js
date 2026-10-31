@@ -1296,6 +1296,24 @@ function showToast(message) {
    ========================================================================== */
 const GALLERY_ITEMS = [
   {
+    title: "Musabaqah Tilawatil Qur'an (MTQ) Ke-III Tingkat Desa Majelis Hidayah",
+    category: "Keagamaan & MTQ",
+    location: "📍 Arena Utama MTQ Desa Majelis Hidayah",
+    src: "galeri-mtq.jpg"
+  },
+  {
+    title: "Musyawarah & Rembuk Warga Desa Bersama Kepala Desa dan BPD",
+    category: "Musyawarah Desa",
+    location: "📍 Balai Pertemuan Desa Majelis Hidayah",
+    src: "galeri-musyawarah.jpg"
+  },
+  {
+    title: "Rapat Koordinasi & Pembahasan Program Kerja Pemerintahan Desa",
+    category: "Pemerintahan Desa",
+    location: "📍 Aula Kantor Desa Majelis Hidayah",
+    src: "galeri-rapat.jpg"
+  },
+  {
     title: 'Musyawarah Rencana Kerja Pemerintah Desa (Musrenbangdes)',
     category: 'Musyawarah Desa',
     location: '📍 Balai Pertemuan Desa Majelis Hidayah',
