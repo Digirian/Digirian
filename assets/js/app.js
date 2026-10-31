@@ -362,7 +362,7 @@ const PERANGKAT_DATA = [
     category: 'kadus',
     nip: 'SK Kades No. 15/MH/2020',
     period: '2020 - Sekarang',
-    avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80',
+    avatar: 'sayuti.jpg',
     description: 'Koordinator kewilayahan DUSUN I yang membawahi RT 01 sampai RT 03 dengan fokus sentra pendaratan nelayan dan pemukiman pesisir.',
     tugas: [
       'Mengawasi keamanan lingkungan dan mengkoordinasikan gotong royong warga Dusun I.',
