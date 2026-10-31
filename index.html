@@ -123,7 +123,7 @@
                 if (open) {
                   badge.className = 'inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold tracking-wide transition-all duration-300 shadow-sm border bg-emerald-500/20 text-emerald-300 border-emerald-400/40 hover:bg-emerald-500/30 backdrop-blur-md';
                   dot.className = 'w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]';
-                  text.textContent = 'BUKA Ã¢â‚¬Â¢ 08.00 - ' + (day === 5 ? '11.30' : '16.00') + ' WIB';
+                  text.textContent = 'BUKA • 08.00 - ' + (day === 5 ? '11.30' : '16.00') + ' WIB';
                   if (tip) {
                     tip.className = 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40';
                     tip.textContent = 'BUKA SEKARANG';
@@ -131,7 +131,7 @@
                 } else {
                   badge.className = 'inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold tracking-wide transition-all duration-300 shadow-sm border bg-rose-500/20 text-rose-300 border-rose-400/40 hover:bg-rose-500/30 backdrop-blur-md';
                   dot.className = 'w-2 h-2 rounded-full bg-rose-400 shadow-[0_0_8px_rgba(244,63,94,0.8)]';
-                  text.textContent = (day === 0 || day === 6) ? 'TUTUP Ã¢â‚¬Â¢ Istirahat' : 'TUTUP';
+                  text.textContent = (day === 0 || day === 6) ? 'TUTUP • Istirahat' : 'TUTUP';
                   if (tip) {
                     tip.className = 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/40';
                     tip.textContent = (day === 0 || day === 6) ? 'LIBUR / ISTIRAHAT' : 'SEDANG TUTUP';
@@ -236,7 +236,7 @@
           </h2>
 
           <p class="text-slate-200 text-base sm:text-lg leading-relaxed max-w-2xl font-light">
-            Mewujudkan tata kelola desa pesisir yang transparan, akuntabel, dan berdaya saing. Terletak di perairan muara Kecamatan Kuala Jambi, Kabupaten Tanjung Jabung Timur, Provinsi Jambi Ã¢â‚¬â€ menjunjung tinggi integritas pelayanan warga dan kelestarian bahari.
+            Mewujudkan tata kelola desa pesisir yang transparan, akuntabel, dan berdaya saing. Terletak di perairan muara Kecamatan Kuala Jambi, Kabupaten Tanjung Jabung Timur, Provinsi Jambi — menjunjung tinggi integritas pelayanan warga dan kelestarian bahari.
           </p>
 
           <!-- Action Buttons -->
@@ -306,7 +306,7 @@
           <span class="text-[11px] text-slate-400">Transparan & Bebas Pungli</span>
         </div>
         <div class="bg-white/10 backdrop-blur-md border border-white/15 p-5 rounded-2xl text-center hover:bg-white/15 transition-all">
-          <div class="text-2xl sm:text-3xl font-black text-blue-300 font-mono">10,30 kmÃ‚Â²</div>
+          <div class="text-2xl sm:text-3xl font-black text-blue-300 font-mono">10,30 km²</div>
           <p class="text-xs font-semibold text-slate-200 uppercase tracking-wider mt-1">Luas Wilayah</p>
           <span class="text-[11px] text-slate-400">Potensi Maritim & Perkebunan</span>
         </div>
@@ -349,20 +349,20 @@
           Profil & Visi Misi Desa Majelis Hidayah
         </h2>
         <p class="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
-          Kecamatan Kuala Jambi, Kabupaten Tanjung Jabung Timur Ã¢â‚¬â€ Memadukan potensi maritim pesisir timur Jambi dengan nilai religius dan musyawarah masyarakat.
+          Kecamatan Kuala Jambi, Kabupaten Tanjung Jabung Timur — Memadukan potensi maritim pesisir timur Jambi dengan nilai religius dan musyawarah masyarakat.
         </p>
       </div>
 
       <!-- Tab Buttons -->
       <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10" role="tablist">
         <button data-tab="tab-sejarah" role="tab" aria-selected="true" class="profile-tab-btn px-6 py-3 rounded-xl font-bold text-sm bg-gov-blue text-white shadow-md transition-all">
-          Ã°Å¸â€œÅ“ Sejarah Desa
+          📜 Sejarah Desa
         </button>
         <button data-tab="tab-geografis" role="tab" aria-selected="false" class="profile-tab-btn px-6 py-3 rounded-xl font-bold text-sm bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all">
-          Ã°Å¸â€”ÂºÃ¯Â¸Â Geografis & Kawasan Pesisir
+          🗺️ Geografis & Kawasan Pesisir
         </button>
         <button data-tab="tab-visi" role="tab" aria-selected="false" class="profile-tab-btn px-6 py-3 rounded-xl font-bold text-sm bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all">
-          Ã°Å¸Å½Â¯ Visi & Misi Resmi
+          🎯 Visi & Misi Resmi
         </button>
       </div>
 
@@ -436,7 +436,7 @@
                 <ul class="text-xs text-slate-700 space-y-2">
                   <li class="flex justify-between py-1 border-b border-blue-100">
                     <span class="text-slate-500">Koordinat Kantor Desa:</span>
-                    <span class="font-mono font-bold">1Ã‚Â°01'44"S 103Ã‚Â°52'10"E</span>
+                    <span class="font-mono font-bold">1°01'44"S 103°52'10"E</span>
                   </li>
                   <li class="flex justify-between py-1 border-b border-blue-100">
                     <span class="text-slate-500">Ketinggian dari Permukaan Laut:</span>
@@ -444,11 +444,11 @@
                   </li>
                   <li class="flex justify-between py-1 border-b border-blue-100">
                     <span class="text-slate-500">Jarak ke Kantor Camat Kuala Jambi:</span>
-                    <span class="font-bold">Ã‚Â± 4,5 km (Via Jalur Titian/Darat)</span>
+                    <span class="font-bold">± 4,5 km (Via Jalur Titian/Darat)</span>
                   </li>
                   <li class="flex justify-between py-1 border-b border-blue-100">
                     <span class="text-slate-500">Jarak ke Ibukota Kab. Muara Sabak:</span>
-                    <span class="font-bold">Ã‚Â± 28 km</span>
+                    <span class="font-bold">± 28 km</span>
                   </li>
                   <li class="flex justify-between py-1">
                     <span class="text-slate-500">Ekosistem Dominan:</span>
@@ -594,7 +594,7 @@
           <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
             <div class="flex items-center gap-3">
               <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
-                Ã¢Å“ÂÃ¯Â¸Â
+                ✍️
               </div>
               <div>
                 <h3 class="text-lg font-bold text-slate-900">Formulir Permohonan Surat Online</h3>
@@ -691,7 +691,7 @@
           <div id="lacak" class="bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-slate-200">
             <div class="flex items-center gap-3 mb-4">
               <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold">
-                Ã°Å¸â€Â
+                🔍
               </div>
               <div>
                 <h3 class="text-base font-bold text-slate-900">Lacak Status Permohonan Surat</h3>
@@ -708,7 +708,7 @@
               </div>
               
               <div class="text-[11px] text-slate-500 flex items-center gap-1">
-                <span>Ã°Å¸â€™Â¡ Kode Uji Coba Tersedia:</span>
+                <span>💡 Kode Uji Coba Tersedia:</span>
                 <button onclick="document.getElementById('input-track-ticket').value='MH-2026-0101'; document.getElementById('btn-track-letter').click();" class="text-gov-emerald font-bold underline">
                   MH-2026-0101
                 </button>
@@ -928,7 +928,6 @@
           </div>
         </div>
 
-        
       </div>
     </div>
   </section>
@@ -988,7 +987,7 @@
             <li class="pt-2">
               <span class="text-slate-400 block mb-1">Hotline WhatsApp Layanan Warga:</span>
               <a href="https://wa.me/6285156665733?text=Halo%20Admin%20Pemerintah%20Desa%20Majelis%20Hidayah,%20saya%20ingin%20berkonsultasi%20layanan%20surat%20desa." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-bold text-sm">
-                <span>Ã°Å¸â€œÂ± +62 851-5666-5733</span>
+                <span>📱 +62 851-5666-5733</span>
                 <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded">Admin Pelayanan</span>
               </a>
             </li>
@@ -1141,7 +1140,7 @@
       <!-- Bottom Copyright & Compliance -->
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
         <div>
-          Ã‚Â© 2026 Pemerintah Desa Majelis Hidayah, Kecamatan Kuala Jambi. Seluruh hak cipta dilindungi undang-undang.
+          © 2026 Pemerintah Desa Majelis Hidayah, Kecamatan Kuala Jambi. Seluruh hak cipta dilindungi undang-undang.
         </div>
         <div class="text-[11px]">
           <span class="text-emerald-500 font-semibold">Desa Majelis Hidayah 2026</span>
@@ -1157,7 +1156,7 @@
   <div id="perangkat-modal" class="modal-container fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/70 backdrop-blur-sm p-4 overflow-y-auto" role="dialog" aria-modal="true">
     <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative animate-fadeIn max-h-[90vh] overflow-y-auto">
       <button class="modal-close-btn absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-sm" aria-label="Tutup jendela profil">
-        Ã¢Å“â€¢
+        ✕
       </button>
       <div id="perangkat-modal-content">
         <!-- Rendered by JS -->
@@ -1169,7 +1168,7 @@
   <div id="receipt-modal" class="modal-container fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/70 backdrop-blur-sm p-4 overflow-y-auto" role="dialog" aria-modal="true">
     <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative animate-fadeIn max-h-[90vh] overflow-y-auto">
       <button class="modal-close-btn absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-sm" aria-label="Tutup bukti pendaftaran">
-        Ã¢Å“â€¢
+        ✕
       </button>
       <div id="receipt-modal-content">
         <!-- Rendered by JS -->
@@ -1181,7 +1180,7 @@
   <div id="news-modal" class="modal-container fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/70 backdrop-blur-sm p-4 overflow-y-auto" role="dialog" aria-modal="true">
     <div class="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl relative animate-fadeIn max-h-[90vh] overflow-y-auto">
       <button class="modal-close-btn absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-sm" aria-label="Tutup artikel">
-        Ã¢Å“â€¢
+        ✕
       </button>
       <div id="news-modal-content">
         <!-- Rendered by JS -->
@@ -1228,6 +1227,6 @@
   </div>
 
   <!-- Main JavaScript Application Logic -->
-  <script src="assets/js/app.js?v=3.1"></script>
+  <script src="assets/js/app.js?v=3.2"></script>
 </body>
 </html>
