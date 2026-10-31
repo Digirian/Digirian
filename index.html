@@ -71,18 +71,49 @@
             </a>
           </div>
           
-          <!-- Accessibility Toolbar -->
-          <div class="flex items-center gap-1.5 bg-gov-blue-light/70 px-2 py-0.5 rounded border border-blue-900/40">
-            <span class="text-[10px] text-slate-300 mr-1">Teks:</span>
-            <button id="font-normal" aria-label="Ukuran font normal" class="px-1.5 py-0.5 hover:bg-white/20 rounded font-bold text-xs" title="Font Normal">A</button>
-            <button id="font-lg" aria-label="Perbesar font 12%" class="px-1.5 py-0.5 hover:bg-white/20 rounded font-bold text-xs" title="Font Sedang">A+</button>
-            <button id="font-xl" aria-label="Perbesar font 25%" class="px-1.5 py-0.5 hover:bg-white/20 rounded font-bold text-sm" title="Font Besar">A++</button>
-            <span class="text-slate-500">|</span>
-            <button id="toggle-contrast" aria-label="Beralih Mode Kontras Tinggi" class="px-1.5 py-0.5 hover:bg-white/20 rounded text-xs flex items-center gap-1" title="Kontras Tinggi (Akselerasi Penglihatan)">
-              <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12z"/></svg>
-              <span>Kontras</span>
-            </button>
+          <!-- Modern Live Office Hours Status Badge (Jadwal Kantor Desa) -->
+          <div class="relative group cursor-pointer" id="office-status-container" title="Klik / Arahkan kursor untuk melihat rincian jadwal pelayanan">
+            <div id="office-status-badge" class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold tracking-wide transition-all duration-300 shadow-sm border bg-slate-800/80 text-slate-300 border-slate-700 backdrop-blur-md">
+              <span id="office-status-dot" class="w-2 h-2 rounded-full bg-slate-400"></span>
+              <span id="office-status-text">Memeriksa Jam Kantor...</span>
+              <svg class="w-3 h-3 opacity-60 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+
+            <!-- Popover Rincian Jadwal Pelayanan Modern -->
+            <div class="absolute right-0 top-full mt-2 hidden group-hover:block z-50 w-72 p-4 bg-slate-900/95 backdrop-blur-md text-white rounded-2xl shadow-2xl border border-white/15 text-xs animate-fadeIn pointer-events-none group-hover:pointer-events-auto">
+              <div class="flex items-center justify-between pb-2 mb-2 border-b border-white/10">
+                <div class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  <span class="font-bold text-white">Jadwal Pelayanan Kantor</span>
+                </div>
+                <span id="tooltip-current-status" class="text-[10px] font-bold px-2 py-0.5 rounded-full"></span>
+              </div>
+              <ul class="space-y-2 text-[11px]">
+                <li class="flex items-center justify-between py-1 border-b border-white/5">
+                  <span class="text-slate-300 font-medium">Senin - Kamis:</span>
+                  <span class="font-mono font-bold text-emerald-300">08.00 - 16.00 WIB</span>
+                </li>
+                <li class="flex items-center justify-between py-1 border-b border-white/5">
+                  <span class="text-slate-300 font-medium">Jumat:</span>
+                  <span class="font-mono font-bold text-teal-300">08.00 - 11.30 WIB</span>
+                </li>
+                <li class="flex items-center justify-between py-1">
+                  <span class="text-slate-400">Sabtu - Minggu:</span>
+                  <span class="font-mono font-bold text-rose-400">TUTUP / Istirahat</span>
+                </li>
+              </ul>
+              <div class="mt-3 pt-2 border-t border-white/10 text-[10px] text-slate-400 flex items-center justify-between">
+                <span>Kantor Desa Majelis Hidayah</span>
+                <span class="text-emerald-400 font-medium">Kec. Kuala Jambi</span>
+              </div>
+            </div>
           </div>
+
+          <!-- Mode Kontras Aksesibilitas -->
+          <button id="toggle-contrast" aria-label="Beralih Mode Kontras Tinggi" class="px-2.5 py-1 rounded-full text-xs flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/15 text-slate-200 transition-colors" title="Mode Kontras Tinggi">
+            <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12z"/></svg>
+            <span class="hidden sm:inline text-[11px] font-medium">Kontras</span>
+          </button>
         </div>
       </div>
     </div>
@@ -978,15 +1009,15 @@
           <ul class="text-xs space-y-2.5">
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
               <span class="text-slate-400">Senin - Kamis:</span>
-              <span class="text-white font-medium">08.00 - 15.00 WIB</span>
+              <span class="text-emerald-400 font-bold">08.00 - 16.00 WIB</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
               <span class="text-slate-400">Jumat:</span>
-              <span class="text-white font-medium">08.00 - 11.30 WIB</span>
+              <span class="text-teal-400 font-bold">08.00 - 11.30 WIB</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
               <span class="text-slate-400">Sabtu - Minggu:</span>
-              <span class="text-amber-400 font-medium">Tutup (Piket Siaga Bencana)</span>
+              <span class="text-rose-400 font-bold">TUTUP / Istirahat</span>
             </li>
             <li class="pt-2">
               <span class="text-slate-400 block mb-1">Hotline WhatsApp Layanan Warga:</span>

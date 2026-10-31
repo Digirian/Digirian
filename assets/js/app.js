@@ -57,10 +57,82 @@ function initRealtimeClock() {
       }
       greetingElement.textContent = `${greeting}, Warga & Pengunjung Desa Majelis Hidayah`;
     }
+
+    // Update Live Office Status (Buka/Tutup)
+    updateOfficeStatus(now);
   }
 
   updateTime();
   setInterval(updateTime, 1000);
+}
+
+function updateOfficeStatus(now = new Date()) {
+  const badge = document.getElementById('office-status-badge');
+  const dot = document.getElementById('office-status-dot');
+  const text = document.getElementById('office-status-text');
+  const tooltipStatus = document.getElementById('tooltip-current-status');
+
+  if (!badge || !dot || !text) return;
+
+  const day = now.getDay(); // 0 = Minggu, 1 = Senin, 2 = Selasa, 3 = Rabu, 4 = Kamis, 5 = Jumat, 6 = Sabtu
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const timeDecimal = hours + (minutes / 60);
+
+  let isOpen = false;
+  let statusBadgeText = '';
+  let tooltipBadgeText = '';
+
+  // Senin (1) s/d Kamis (4): 08.00 - 16.00 WIB
+  if (day >= 1 && day <= 4) {
+    if (timeDecimal >= 8.0 && timeDecimal < 16.0) {
+      isOpen = true;
+      statusBadgeText = 'BUKA • 08.00 - 16.00 WIB';
+      tooltipBadgeText = 'BUKA SEKARANG';
+    } else {
+      isOpen = false;
+      statusBadgeText = 'TUTUP';
+      tooltipBadgeText = 'SEDANG TUTUP';
+    }
+  } 
+  // Jumat (5): 08.00 - 11.30 WIB
+  else if (day === 5) {
+    if (timeDecimal >= 8.0 && timeDecimal < 11.5) {
+      isOpen = true;
+      statusBadgeText = 'BUKA • 08.00 - 11.30 WIB';
+      tooltipBadgeText = 'BUKA SEKARANG';
+    } else {
+      isOpen = false;
+      statusBadgeText = 'TUTUP';
+      tooltipBadgeText = 'SEDANG TUTUP';
+    }
+  } 
+  // Sabtu (6) & Minggu (0): TUTUP / Istirahat
+  else {
+    isOpen = false;
+    statusBadgeText = 'TUTUP • Istirahat';
+    tooltipBadgeText = 'LIBUR / ISTIRAHAT';
+  }
+
+  if (isOpen) {
+    // Hijau Modern (Emerald)
+    badge.className = 'inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold tracking-wide transition-all duration-300 shadow-sm border bg-emerald-500/20 text-emerald-300 border-emerald-400/40 hover:bg-emerald-500/30 backdrop-blur-md';
+    dot.className = 'w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]';
+    text.textContent = statusBadgeText;
+    if (tooltipStatus) {
+      tooltipStatus.className = 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40';
+      tooltipStatus.textContent = tooltipBadgeText;
+    }
+  } else {
+    // Merah Modern (Rose / Red)
+    badge.className = 'inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold tracking-wide transition-all duration-300 shadow-sm border bg-rose-500/20 text-rose-300 border-rose-400/40 hover:bg-rose-500/30 backdrop-blur-md';
+    dot.className = 'w-2 h-2 rounded-full bg-rose-400 shadow-[0_0_8px_rgba(244,63,94,0.8)]';
+    text.textContent = statusBadgeText;
+    if (tooltipStatus) {
+      tooltipStatus.className = 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/40';
+      tooltipStatus.textContent = tooltipBadgeText;
+    }
+  }
 }
 
 /* ==========================================================================
