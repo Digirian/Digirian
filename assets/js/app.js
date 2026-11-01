@@ -1388,3 +1388,22 @@ document.addEventListener('keydown', (e) => {
     }
   }
 });
+
+
+window.openApbdesModal = function() {
+  const modal = document.getElementById('apbdes-modal');
+  if (modal) {
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+};
+
+window.closeApbdesModal = function() {
+  const modal = document.getElementById('apbdes-modal');
+  if (modal) {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+};
