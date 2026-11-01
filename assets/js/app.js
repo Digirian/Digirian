@@ -287,7 +287,7 @@ const PERANGKAT_DATA = [
     category: 'sekretariat',
     nip: 'SK Kades No. 04/MH/2022',
     period: '2022 - Sekarang',
-    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
+    avatar: 'zaleha.jpg',
     description: 'Mengkoordinasikan urusan ketatausahaan, administrasi kependudukan, tata kelola keuangan desa, dan penyusunan regulasi desa.',
     tugas: [
       'Mengkoordinasikan penyusunan rancangan peraturan desa dan dokumen APBDes.',
@@ -392,7 +392,7 @@ const PERANGKAT_DATA = [
     category: 'kadus',
     nip: 'SK Kades No. 18/MH/2020',
     period: '2020 - Sekarang',
-    avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80',
+    avatar: 'prayitno.jpg',
     description: 'Koordinator kewilayahan DUSUN III yang membawahi RT 07 sampai RT 09 dengan fokus ketertiban warga, pemeliharaan lingkungan, dan koordinasi masyarakat.',
     tugas: [
       'Pembinaan ketertiban masyarakat dan koordinasi gotong royong Dusun III.',
@@ -1061,7 +1061,7 @@ const NEWS_ARTICLES = [
     category: 'pengumuman',
     date: '22 Oktober 2026',
     author: 'Kasi Pemerintahan',
-    image: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=700&q=80',
+    image: 'pelayanan-ktp.jpg',
     summary: 'Dinas Kependudukan dan Pencatatan Sipil Kab. Tanjung Jabung Timur bekerja sama dengan Pemdes Majelis Hidayah mengadakan perekaman KTP-el langsung di desa.',
     content: `
       <p class="mb-4">Diberitahukan kepada seluruh warga masyarakat Desa Majelis Hidayah yang belum memiliki KTP Elektronik (khususnya pemula usia 16-17 tahun) dan akta catatan sipil:</p>
@@ -1302,40 +1302,22 @@ function showToast(message) {
    ========================================================================== */
 const GALLERY_ITEMS = [
   {
-    title: 'Musyawarah Rencana Kerja Pemerintah Desa (Musrenbangdes)',
-    category: 'Musyawarah Desa',
-    location: '📍 Balai Pertemuan Desa Majelis Hidayah',
-    src: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1400&q=85'
+    title: "Musabaqah Tilawatil Qur'an (MTQ) Ke-III Tingkat Desa Majelis Hidayah",
+    category: "Keagamaan & MTQ",
+    location: "ðŸ“ Arena Utama MTQ Desa Majelis Hidayah",
+    src: "galeri-mtq.jpg"
   },
   {
-    title: 'Penyaluran Bantuan Langsung Tunai (BLT Dana Desa)',
-    category: 'Bantuan Sosial',
-    location: '📍 Aula Kantor Desa Majelis Hidayah',
-    src: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1400&q=85'
+    title: "Musyawarah & Rembuk Warga Desa Bersama Kepala Desa dan BPD",
+    category: "Musyawarah Desa",
+    location: "ðŸ“ Balai Pertemuan Desa Majelis Hidayah",
+    src: "galeri-musyawarah.jpg"
   },
   {
-    title: 'Gotong Royong Perbaikan Titian Jalan Beton Pesisir',
-    category: 'Infrastruktur Dusun',
-    location: '📍 Titian Penghubung RT Dusun I & Dusun III',
-    src: 'https://images.unsplash.com/photo-1541888946425-d0fbb1861593?auto=format&fit=crop&w=1400&q=85'
-  },
-  {
-    title: 'Pelayanan Administrasi Kependudukan & Catatan Sipil',
-    category: 'Pelayanan Terpadu',
-    location: '📍 Kantor Desa Majelis Hidayah',
-    src: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1400&q=85'
-  },
-  {
-    title: 'Peringatan Hari Besar Islam & Pengajian Akbar',
-    category: 'Keagamaan & Majelis',
-    location: '📍 Masjid Jami Al-Hidayah, Dusun II',
-    src: 'https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=1400&q=85'
-  },
-  {
-    title: 'Pemeriksaan Posyandu Balita & Posbindu Lansia',
-    category: 'Kesehatan Warga',
-    location: '📍 Poskesdes Desa Majelis Hidayah',
-    src: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1400&q=85'
+    title: "Rapat Koordinasi & Pembahasan Program Kerja Pemerintahan Desa",
+    category: "Pemerintahan Desa",
+    location: "ðŸ“ Aula Kantor Desa Majelis Hidayah",
+    src: "galeri-rapat.jpg"
   }
 ];
 
