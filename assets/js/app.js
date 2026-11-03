@@ -1057,21 +1057,69 @@ const NEWS_ARTICLES = [
   },
   {
     id: 3,
-    title: 'Pengumuman Resmi: Jadwal Pelayanan Perekaman KTP Elektronik & Akta Kelahiran Jemput Bola',
+    title: 'Pengumuman Resmi: Informasi Terkait Proses Administrasi Penyaluran Penghasilan Tetap (Siltap) Perangkat Desa Bulan Desember 2026',
     category: 'pengumuman',
-    date: '22 Oktober 2026',
-    author: 'Kasi Pemerintahan',
-    image: 'pelayanan-ktp.jpg',
-    summary: 'Dinas Kependudukan dan Pencatatan Sipil Kab. Tanjung Jabung Timur bekerja sama dengan Pemdes Majelis Hidayah mengadakan perekaman KTP-el langsung di desa.',
+    date: '03 November 2026',
+    author: 'Sekretariat Desa',
+    image: 'galeri-rapat.jpg',
+    summary: 'Pemberitahuan resmi kepada seluruh jajaran perangkat desa bahwa proses administrasi penyaluran Penghasilan Tetap (Siltap) Bulan Desember saat ini sedang berjalan kurang lebih 2 bulan ke depan. Seluruh rekan perangkat desa diharapkan bersabar dan tetap berkoordinasi secara berkala.',
     content: `
-      <p class="mb-4">Diberitahukan kepada seluruh warga masyarakat Desa Majelis Hidayah yang belum memiliki KTP Elektronik (khususnya pemula usia 16-17 tahun) dan akta catatan sipil:</p>
-      <ul class="list-disc pl-5 mb-4 space-y-1">
-        <li><strong>Hari / Tanggal:</strong> Senin - Selasa, 09 - 10 November 2026</li>
-        <li><strong>Waktu:</strong> Pukul 08.30 - 15.00 WIB</li>
-        <li><strong>Tempat:</strong> Gedung Balai Desa Majelis Hidayah (Dusun 2)</li>
-        <li><strong>Persyaratan:</strong> Membawa fotokopi Kartu Keluarga (KK) dan Akta Kelahiran asli bagi pemohon baru</li>
+      <div class="border-b border-slate-200 pb-3 mb-4">
+        <p class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Nomor: 005 / 142 / PEMDES / 2026</p>
+        <p class="text-sm font-bold text-slate-800 mt-1">Perihal: Pemberitahuan Alur Administrasi Penyaluran Penghasilan Tetap (Siltap) Bulan Desember</p>
+      </div>
+
+      <p class="mb-4"><strong>Kepada Yth. Seluruh Jajaran Aparatur dan Staf Pemerintah Desa Majelis Hidayah</strong><br>Kecamatan Kuala Jambi, Kabupaten Tanjung Jabung Timur<br><em>di Tempat</em></p>
+
+      <p class="mb-4"><em>Assalamu'alaikum Warahmatullahi Wabarakatuh,</em><br>Salam sejahtera bagi kita semua,</p>
+
+      <p class="mb-4">Dengan hormat,</p>
+
+      <p class="mb-4">Pemerintah Desa Majelis Hidayah melalui Sekretariat Desa menyampaikan salam takzim dan penghargaan setinggi-tingginya kepada seluruh rekan-rekan Kepala Seksi (Kasi), Kepala Urusan (Kaur), Kepala Dusun (Kadus), serta seluruh staf kantor desa yang senantiasa mengabdi dan melayani masyarakat dengan sepenuh hati.</p>
+
+      <p class="mb-4">Sehubungan dengan tata kelola keuangan desa dan alur pencairan anggaran menjelang penutupan Tahun Anggaran 2026, bersama ini kami sampaikan informasi penting dan transparan terkait jadwal serta proses pencairan <strong>Penghasilan Tetap (Siltap) / Tunjangan Perangkat Desa untuk Bulan Desember 2026</strong> sebagai berikut:</p>
+
+      <div class="bg-amber-50 border-l-4 border-amber-500 p-4 sm:p-5 mb-5 rounded-r-2xl shadow-sm">
+        <h4 class="font-bold text-amber-900 text-sm mb-2 flex items-center gap-2">
+          <svg class="w-5 h-5 text-amber-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+          <span>Pemberitahuan Tahapan & Estimasi Waktu:</span>
+        </h4>
+        <p class="text-amber-900 text-xs sm:text-sm leading-relaxed mb-3">
+          Saat ini, tahapan kelengkapan administrasi pengajuan anggaran triwulan penutup, verifikasi berkas Surat Permintaan Pembayaran (SPP), serta rekonsiliasi data penatausahaan keuangan desa ke Badan Keuangan Daerah dan Dinas Pemberdayaan Masyarakat dan Desa (PMD) Kabupaten Tanjung Jabung Timur <strong>sedang berlangsung dan masih berjalan kurang lebih 2 (dua) bulan ke depan</strong>.
+        </p>
+        <div class="p-3 bg-white/70 rounded-xl border border-amber-200 text-xs text-amber-950 font-medium">
+           <span>&#128161;</span> <em>Catatan:</em> Penyaluran Siltap Bulan Desember mengikuti prosedur baku administrasi keuangan daerah yang membutuhkan verifikasi menyeluruh sebelum pencairan dari kas daerah ke rekening kas desa dapat diterbitkan.
+        </div>
+      </div>
+
+      <p class="mb-4">Mengingat tahapan prosedural yang sedang diproses tersebut, Pemerintah Desa Majelis Hidayah dengan penuh kerendahan hati mengimbau dan memohon kepada seluruh jajaran perangkat desa:</p>
+
+      <ul class="list-disc pl-5 mb-5 space-y-2.5 text-slate-700 text-xs sm:text-sm leading-relaxed">
+        <li>
+          <strong>Mohon Kesabaran dan Keikhlasan:</strong> Kami memohon keikhlasan, pengertian, dan kesabaran rekan-rekan perangkat desa sekalian dalam menunggu rampungnya seluruh rangkaian alur verifikasi administratif ini.
+        </li>
+        <li>
+          <strong>Tetap Mengutamakan Pelayanan Masyarakat:</strong> Kami berharap seluruh aparatur tetap menjaga semangat kebersamaan, soliditas, serta integritas dalam menjalankan tugas kepamongan dan pelayanan kepada warga pesisir Desa Majelis Hidayah.
+        </li>
+        <li>
+          <strong>Koordinasi Terbuka dan Kekeluargaan:</strong> Seluruh perkembangan informasi pencairan akan senantiasa diperbarui secara transparan melalui Sekretaris Desa dan Kaur Keuangan.
+        </li>
       </ul>
-      <p class="mb-4">Layanan ini gratis tanpa dipungut biaya sepeser pun. Warga diharapkan memanfaatkan kemudahan ini sebaik-baiknya.</p>
+
+      <p class="mb-4">Pemerintah Desa Majelis Hidayah memastikan bahwa hak rekan-rekan sekalian adalah prioritas utama kami, dan kami berkomitmen penuh untuk terus mengawal proses ini hingga terselesaikan dengan baik, tertib, dan lancar.</p>
+
+      <p class="mb-5">Demikian pengumuman ini kami sampaikan dengan sebenarnya untuk menjadi maklum bersama. Atas perhatian, kesabaran, kerja sama, dan dedikasi luar biasa yang tiada henti dari rekan-rekan perangkat desa, kami haturkan ucapan terima kasih yang tulus dan sedalam-dalamnya.</p>
+
+      <div class="mt-8 pt-4 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 text-xs text-slate-600">
+        <div>
+          <p>Ditetapkan di: <strong>Majelis Hidayah</strong></p>
+          <p>Pada tanggal: <strong>03 November 2026</strong></p>
+        </div>
+        <div class="sm:text-right">
+          <p class="font-bold text-slate-900 text-sm">Pemerintah Desa Majelis Hidayah</p>
+          <p class="text-slate-500">Sekretariat Desa & Tata Usaha</p>
+        </div>
+      </div>
     `
   },
   {
