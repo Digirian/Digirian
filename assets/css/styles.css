@@ -184,3 +184,36 @@ textarea:focus-visible {
 .transition-smooth {
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* Ticker Seamless Marquee Running Text Animation */
+@keyframes tickerMove {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+}
+
+.ticker-content {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  animation: tickerMove 32s linear infinite;
+  will-change: transform;
+}
+
+.ticker-container:hover .ticker-content {
+  animation-play-state: paused;
+}
+
+@media (max-width: 640px) {
+  .ticker-content {
+    animation-duration: 25s;
+  }
+}
